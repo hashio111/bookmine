@@ -1,7 +1,7 @@
 .flash.mt-3
   - if flash[:notice]
-    .alert.alert-info
+    .alert.alert-success.alert-dismissible
       = flash[:notice]
   -if flash[:alert]
-    .alert.alert-danger
+    .alert.alert-danger.alert-dismissible
       = flash[:alert]
