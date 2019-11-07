@@ -1,3 +1,4 @@
-= link_to "新規登録", new_user_registration_path, class: "btn btn-success"
-= link_to "ログイン", new_user_session_path, class: "btn btn-primary"
-= link_to "ログアウト", destroy_user_session_path, class: "btn btn-danger", method: :delete
+-if @books["items"].present?
+  - @books["items"].each do |book|
+    -if book["volumeInfo"]["imageLinks"].present?
+      = image_tag(book["volumeInfo"]["imageLinks"]["thumbnail"],size:"128x181")
