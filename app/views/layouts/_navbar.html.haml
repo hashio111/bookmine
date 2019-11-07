@@ -5,18 +5,20 @@
       %button.navbar-toggler{type: "button", data: {toggle: "collapse", target: "#navbarNav"}, aria: {controls: "navbarNav", expanded: "false", label: "Toggle navigation"}}
         %span.navbar-toggler-icon
       .collapse.navbar-collapse#navbarNav
-        %ul.navbar-nav
+        %ul.navbar-nav.my-1
           %li.nav-item
             = link_to "Home", "#", class: "nav-link"
           %li.nav-item
             = link_to "Features", "#", class: "nav-link"
           %li.nav-item
             = link_to "Pricing", "#", class: "nav-link"
-          - if user_signed_in?
-            %li.nav-item
+        - if user_signed_in?
+          %ul.navbar-nav.ml-auto
+            %li.nav-item.my-1
               = link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-danger", method: :delete
-          - else
-            %li.nav-item
+        - else
+          %ul.navbar-nav.ml-auto
+            %li.nav-item.my-1
               = link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary mr-3"
-            %li.nav-item
+            %li.nav-item.my-1
               = link_to "ログイン", new_user_session_path, class: "btn btn-outline-success"
