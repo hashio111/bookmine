@@ -1,7 +1,13 @@
 .flash.mt-3
   - if flash[:notice]
-    .alert.alert-success.alert-dismissible
+    .alert.alert-success.alert-dismissible.fade.show
+      %button.close{type: "button", data: {dismiss: "alert"}}
+        %span{aria: {hidden: "true"}}
+          &times;
       = flash[:notice]
   -if flash[:alert]
-    .alert.alert-danger.alert-dismissible
+    .alert.alert-danger.alert-dismissible.fade.show
+      %button.close{type: "button", data: {dismiss: "alert"}}
+        %span{aria: {hidden: "true"}}
+          &times;
       = flash[:alert]
