@@ -1,4 +1,5 @@
 class ToppagesController < ApplicationController
+  require 'net/http'
   def index
     url = 'https://www.googleapis.com/books/v1/volumes?q='
     request = url + "rails"
