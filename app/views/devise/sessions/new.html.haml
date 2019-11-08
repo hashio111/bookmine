@@ -1,5 +1,14 @@
+-# パンくず
+.nav{aria: {label: "breadcrumb"}}
+  %ol.breadcrumb.bg-transparent
+    %li.breadcrumb-item
+      = link_to "ホーム", root_path
+    %li.breadcrumb-item.active{aria: {current: "page"}}
+      ログイン
+
+-# ログインフォーム
 .row
-  .col-xs-offset-2.col-xs-8.col-md-offset-3.col-md-6
+  .offset-xs-2.col-xs-8.offset-md-3.col-md-6
     .card
       .card-header ログイン
       .card-body
@@ -14,16 +23,16 @@
           %span アカウントをお持ちでない方はこちらから
           %span= link_to "新規登録", new_user_registration_path
           してください
-  
-          
-  .col-xs-offset-2.col-xs-8.col-md-offset-3.col-md-6
+
+  -# 簡単ログイン
+  .offset-xs-2.col-xs-8.offset-md-3.col-md-6    
     .card.mt-4
       .card-header 簡単ログイン
       .card-body
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           = f.hidden_field :email, value: "test@gmail.com"
           = f.hidden_field :password, value: "111111"
-          = f.submit "簡単ログイン", class: "btn btn-success btn-block mt-3"
+          = f.submit "簡単ログイン", class: "btn btn-outline-success btn-block mt-3"
         %p.mt-4 こちらからワンクリックでログインできます
 
 
