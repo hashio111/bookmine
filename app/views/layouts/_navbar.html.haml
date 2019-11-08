@@ -5,7 +5,7 @@
       %button.navbar-toggler{type: "button", data: {toggle: "collapse", target: "#navbarNav"}, aria: {controls: "navbarNav", expanded: "false", label: "Toggle navigation"}}
         %span.navbar-toggler-icon
       .collapse.navbar-collapse#navbarNav
-        %ul.navbar-nav.my-1
+        %ul.navbar-nav.my-1.ml-auto
           %li.nav-item
             = link_to "Home", "#", class: "nav-link"
           %li.nav-item
@@ -19,6 +19,11 @@
         - else
           %ul.navbar-nav.ml-auto
             %li.nav-item.my-1
-              = link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary mr-3"
+              = link_to "新規登録", new_user_registration_path, class: "nav-link"
             %li.nav-item.my-1
-              = link_to "ログイン", new_user_session_path, class: "btn btn-outline-success"
+              = link_to "ログイン", new_user_session_path, class: "nav-link"
+            %li.nav-item.my-1
+              = form_with model: @user, url: user_session_path, method: :post, local: true do |f|
+                = f.hidden_field :email, value: "test@gmail.com"
+                = f.hidden_field :password, value: "111111"
+                = f.submit "簡単ログイン", class: "btn btn-success"
