@@ -1,13 +1,10 @@
 .flash.mt-3
-  - if flash[:notice]
-    .alert.alert-success.alert-dismissible.fade.show
+  - flash.each do |message_type, message|
+    - message_type = "success" if message_type == "notice"
+    - message_type = "danger" if message_type == "alert"
+    - message_type = "warning" if message_type == "warning"
+    %div{class: "alert alert-#{message_type} alert-dismissible fade show"}
       %button.close{type: "button", data: {dismiss: "alert"}}
         %span{aria: {hidden: "true"}}
           &times;
-      = flash[:notice]
-  -if flash[:alert]
-    .alert.alert-danger.alert-dismissible.fade.show
-      %button.close{type: "button", data: {dismiss: "alert"}}
-        %span{aria: {hidden: "true"}}
-          &times;
-      = flash[:alert]
+      = message
