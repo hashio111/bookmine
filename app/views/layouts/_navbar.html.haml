@@ -5,7 +5,7 @@
       %button.navbar-toggler{type: "button", data: {toggle: "collapse", target: "#navbarNav"}, aria: {controls: "navbarNav", expanded: "false", label: "Toggle navigation"}}
         %span.navbar-toggler-icon
       .collapse.navbar-collapse#navbarNav
-        %ul.navbar-nav.my-1.ml-auto
+        %ul.navbar-nav.my-1.mx-auto
           %li.nav-item
             = link_to "ランキング", "#", class: "nav-link"
           %li.nav-item
@@ -13,9 +13,13 @@
           %li.nav-item
             = link_to "ユーザーを探す", "#", class: "nav-link"
         - if user_signed_in?
-          %ul.navbar-nav.ml-auto
-            %li.nav-item.my-1
-              = link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-danger", method: :delete
+          .dropdown
+            %a.text-dark.text-decoration-none.dropdown-toggler{href: "#", role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}}
+              = current_user.name
+            .dropdown-menu
+              = link_to "マイページ", "#", class: "dropdown-item"
+              .dropdown-divider
+              = link_to "ログアウト", destroy_user_session_path, class: "dropdown-item text-danger", method: :delete
         - else
           %ul.navbar-nav.ml-auto
             %li.nav-item.my-1

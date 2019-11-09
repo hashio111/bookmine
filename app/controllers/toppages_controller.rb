@@ -8,5 +8,6 @@ class ToppagesController < ApplicationController
     uri = URI.parse(enc_str)
     json = Net::HTTP.get(uri)
     @books = JSON.parse(json)
+
   end
 end
