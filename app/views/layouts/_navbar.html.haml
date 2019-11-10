@@ -17,7 +17,7 @@
             %a.text-dark.text-decoration-none.dropdown-toggler{href: "#", role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}}
               = current_user.name
             .dropdown-menu
-              = link_to "マイページ", "#", class: "dropdown-item"
+              = link_to "マイページ", user_path(current_user), class: "dropdown-item"
               .dropdown-divider
               = link_to "ログアウト", destroy_user_session_path, class: "dropdown-item text-danger", method: :delete
         - else
