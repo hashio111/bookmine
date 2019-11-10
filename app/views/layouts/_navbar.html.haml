@@ -1,7 +1,9 @@
 %header
   %nav.navbar.navbar-expand-lg.navbar-light.bg-light
     .container
-      = link_to "BookMine", root_path, class: "navbar-brand"
+      = link_to root_path, class: "navbar-brand" do
+        %i.far.fa-sticky-note.text-success
+        %span.ml-1 BookMine
       %button.navbar-toggler{type: "button", data: {toggle: "collapse", target: "#navbarNav"}, aria: {controls: "navbarNav", expanded: "false", label: "Toggle navigation"}}
         %span.navbar-toggler-icon
       .collapse.navbar-collapse#navbarNav
