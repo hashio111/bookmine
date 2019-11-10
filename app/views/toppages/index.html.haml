@@ -1,5 +1,11 @@
 - content_for :cover do  
   .cover
-    .cover-inner
-      .cover-contents
-        %h1 読みたい本はありますか？
+    .cover__inner
+      .cover__inner__contents
+        %h1 BookMine
+        .cover__inner__contents__text.mb-5
+          読みたい本、ありますか？
+          %br BookMineで見つけましょう
+          
+        - unless user_signed_in?
+          = link_to "BookMineを始める", new_user_session_path, class: "btn btn-success btn-lg mb-5"

@@ -15,7 +15,16 @@
   .row
     - @books["items"].each do |book|
       -if book["volumeInfo"]["imageLinks"].present?
-        .col-xs-12.col-sm-6.col-md-4.col-lg-3
-          .card.mt-3
-            .card-image
-              = image_tag(book["volumeInfo"]["imageLinks"]["smallThumbnail"],size:"128x181")
+        .offset-xs-2.col-xs-8.col-sm-6.col-md-4.col-lg-3
+          .card.mt-3.bg-light
+            .card-image.mx-auto.my-2
+              = image_tag(book["volumeInfo"]["imageLinks"]["smallThumbnail"], class: "rounded border", size:"180x250")
+            .card-body.bg-white.border-top
+              %h5.card-title.text-truncate= book["volumeInfo"]["title"]
+              -if book["volumeInfo"]["authors"].present?
+                %p.card-text.text-truncate= book["volumeInfo"]["authors"].join("/")
+              -else
+                作者情報無し
+            .card-footer.bg-white.text-center
+              %button.btn.btn-outline-success
+                登録する
