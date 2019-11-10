@@ -1,4 +1,5 @@
--if @books["items"].present?
-  - @books["items"].each do |book|
-    -if book["volumeInfo"]["imageLinks"].present?
-      = image_tag(book["volumeInfo"]["imageLinks"]["smallThumbnail"],size:"128x181")
+- content_for :cover do  
+  .cover
+    .cover-inner
+      .cover-contents
+        %h1 読みたい本はありますか？

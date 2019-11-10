@@ -2,7 +2,7 @@
 .nav{aria: {label: "breadcrumb"}}
   %ol.breadcrumb.bg-transparent
     %li.breadcrumb-item
-      = link_to "ホーム", root_path
+      = link_to "Home", root_path
     %li.breadcrumb-item.active{aria: {current: "page"}}
       新規登録
 
@@ -30,6 +30,7 @@
             = f.label :password_confirmation, "パスワード (確認)"
             = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
             = f.submit "登録する", class: "btn btn-success btn-block mt-4"
+      .text-center.mb-3
         %span アカウントをお持ちの方は
-        %span= link_to "こちら", new_user_registration_path
+        %span= link_to "こちら", new_user_session_path
         %span からログインしてください
