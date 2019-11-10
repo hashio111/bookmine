@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'toppages#index'
 
   resources :users, only: %i[show]
+  resources :products, only: %i[index new]
 end
