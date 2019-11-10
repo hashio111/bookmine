@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if params[:key_word].present?
       @user = User.new
       url = 'https://www.googleapis.com/books/v1/volumes?q='
-      request = url + "rails"
+      request = url + "#{params[:key_word]}"
       enc_str = URI.encode(request)
       uri = URI.parse(enc_str)
       json = Net::HTTP.get(uri)
