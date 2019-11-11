@@ -1,24 +1,36 @@
-# README
+# BookMine
+本のレビュー投稿アプリです<br>
+就活用のポートフォリオとして作成中のものになります
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## URL
+https://bookmine.work
 
-Things you may want to cover:
+* ナビゲーションバー、もしくはログインページの【簡単ログイン】からテストユーザーとしてログインできます
 
-* Ruby version
+## 開発環境
+* Ruby 2.5.1
+* Ruby On rails 5.2.3
+* mysql 5.7
+* Sass
+* haml
 
-* System dependencies
+## 機能、使用技術
+* ユーザー登録・ログイン機能(devise)
+* 書籍検索機能(GoogleBooks api)
+* Bootstrap4を用いたレイアウト
+* AWS
+  * EC2
+  * Route53
+  * ACM
+* Capistrano
+* jQuery
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 今後実装してきたいこと
+* レビュー投稿機能(CRUD)
+* レビュー検索機能(ransak)
+* ページネーション機能(kaminari)
+* ユーザーフォロー機能
+* いいね機能
+* Rspecによるテスト
+* dockerで開発環境の構築
+* circleciの導入
