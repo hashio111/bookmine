@@ -3,7 +3,7 @@
 就活用のポートフォリオとして作成中のものになります
 
 ## URL
-http://bookmine.work
+https://bookmine.work
 
 * ナビゲーションバー、もしくはログインページの【簡単ログイン】からテストユーザーとしてログインできます
 
@@ -21,6 +21,7 @@ http://bookmine.work
 * AWS
   * EC2
   * Route53
+  * ACM
 * Capistrano
 * jQuery
 
@@ -30,7 +31,6 @@ http://bookmine.work
 * ページネーション機能(kaminari)
 * ユーザーフォロー機能
 * いいね機能
-* ACM ELBでHTTPS化
 * Rspecによるテスト
-* dockerによる開発環境の構築
+* dockerで開発環境の構築
 * circleciの導入
