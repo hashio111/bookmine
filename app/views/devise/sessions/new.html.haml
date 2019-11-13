@@ -8,31 +8,32 @@
       ログイン
       
 -# ログインフォーム
-.row
-  .offset-xs-2.col-xs-8.offset-md-3.col-md-6
-    .card
-      .card-header ログイン
-      .card-body
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .form-group
-            = f.label :email, "メールアドレス"
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
-          .form-group
-            = f.label :password, "パスワード"
-            = f.password_field :password, autocomplete: "current-password", class: "form-control"
-            = f.submit "ログイン", class: "btn btn-success btn-block mt-4"
-          .text-center
-            %span 新規登録は
-            %span= link_to "こちら", new_user_registration_path
-            %span から
+.container
+  .row
+    .offset-xs-2.col-xs-8.offset-md-3.col-md-6
+      .card
+        .card-header ログイン
+        .card-body
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form-group
+              = f.label :email, "メールアドレス"
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+            .form-group
+              = f.label :password, "パスワード"
+              = f.password_field :password, autocomplete: "current-password", class: "form-control"
+              = f.submit "ログイン", class: "btn btn-success btn-block mt-4"
+            .text-center
+              %span 新規登録は
+              %span= link_to "こちら", new_user_registration_path
+              %span から
 
-  -# 簡単ログイン
-  .offset-xs-2.col-xs-8.offset-md-3.col-md-6    
-    .card.mt-4
-      .card-header 簡単ログイン
-      .card-body
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          = f.hidden_field :email, value: "test@gmail.com"
-          = f.hidden_field :password, value: "111111"
-          = f.submit "簡単ログイン", class: "btn btn-outline-success btn-block mt-3"
-        %p.mt-4.text-center ワンクリックでログインすることもできます
+    -# 簡単ログイン
+    .offset-xs-2.col-xs-8.offset-md-3.col-md-6    
+      .card.mt-4
+        .card-header 簡単ログイン
+        .card-body
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            = f.hidden_field :email, value: "test@gmail.com"
+            = f.hidden_field :password, value: "111111"
+            = f.submit "簡単ログイン", class: "btn btn-outline-success btn-block mt-3"
+          %p.mt-4.text-center ワンクリックでログインすることもできます

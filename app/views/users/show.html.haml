@@ -1,6 +1,24 @@
 .nav{aria: {label: "breadcrumb"}}
   %ol.breadcrumb.bg-transparent
     %li.breadcrumb-item
-      = link_to "ホーム", root_path
+      = link_to root_path do
+        %i.fas.fa-home
     %li.breadcrumb-item.active{aria: {current: "page"}}
       マイページ
+
+.container.mb-md-5{style: 'max-width: 700px'}
+  .row
+    .d-none.d-md-block.pr-5
+      = image_tag "https://static.mercdn.net/item/detail/orig/photos/m28158981360_1.jpg?1550121208", size: "250x250", class: "rounded-circle z-depth-0"
+
+  .col-md.px-0.d-flex.align-items-center
+    %div{style: "width: 100%"}
+      .user-header.d-flex.flex-column.no-gutters
+        .row
+          .col-4.d-md-none
+            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m28158981360_1.jpg?1550121208", size: "250x250", class: "rounded-circle z-depth-0 img-fruid"
+  .col-8.col-md-12.dflex.align-items-center
+    .d-flex.flex-column.align-items-center{style: "witdh: 100%"}
+      .d-flex.align-items-center{style: "width: 100%"}
+        .mr-auto
+          .font-weight-bold ユーザーネーム
