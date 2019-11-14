@@ -6,19 +6,28 @@
     %li.breadcrumb-item.active{aria: {current: "page"}}
       マイページ
 
-.container.mb-md-5{style: 'max-width: 700px'}
+.container
   .row
-    .d-none.d-md-block.pr-5
-      = image_tag "https://static.mercdn.net/item/detail/orig/photos/m28158981360_1.jpg?1550121208", size: "250x250", class: "rounded-circle z-depth-0"
+    .col-md-4text-center
+      = image_tag avatar_url(@user), size: "200x200", class: "rounded-circle"
+    .col-md-8
+      .row
+        %h1= @user.name
+        - if @user == current_user
+          = link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-success common-btn"
+      .self_introduction
+        = simple_format @user.self_introduction
 
-  .col-md.px-0.d-flex.align-items-center
-    %div{style: "width: 100%"}
-      .user-header.d-flex.flex-column.no-gutters
-        .row
-          .col-4.d-md-none
-            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m28158981360_1.jpg?1550121208", size: "250x250", class: "rounded-circle z-depth-0 img-fruid"
-  .col-8.col-md-12.dflex.align-items-center
-    .d-flex.flex-column.align-items-center{style: "witdh: 100%"}
-      .d-flex.align-items-center{style: "width: 100%"}
-        .mr-auto
-          .font-weight-bold ユーザーネーム
+
+  
+  -# .col-md.px-0.d-flex.align-items-center
+  -#   %div{style: "width: 100%"}
+  -#     .user-header.d-flex.flex-column.no-gutters
+  -#       .row
+  -#         .col-4.d-md-none
+  -#           = image_tag "https://static.mercdn.net/item/detail/orig/photos/m28158981360_1.jpg?1550121208", size: "250x250", class: "rounded-circle z-depth-0 img-fruid"
+  -# .col-8.col-md-12.dflex.align-items-center
+  -#   .d-flex.flex-column.align-items-center{style: "witdh: 100%"}
+  -#     .d-flex.align-items-center{style: "width: 100%"}
+  -#       .mr-auto
+  -#         .font-weight-bold ユーザーネーム
