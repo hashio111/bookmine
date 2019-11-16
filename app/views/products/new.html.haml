@@ -6,27 +6,30 @@
     %li.breadcrumb-item.active{aria: {current: "page"}}
       本を探す
 
-.row.justify-content-center
-  = form_with url: new_product_path, method: :get, local: true, class: "form-inline" do |f|
-    .form-group.form-inline
-      = f.text_field :key_word, class: "form-control form-control-lg", placeholder: "書籍名"
-      .col-auto
-        = f.submit "検索", class: "btn btn-success btn-lg"
+.container
+  .row.justify-content-center
+    = form_with url: new_product_path, method: :get, local: true, class: "form-inline" do |f|
+      .form-group
+        .col
+          = f.text_field :key_word, class: "form-control form-control-lg", placeholder: "書籍名"
+      .form-group
+        .col
+          = f.submit "検索", class: "btn btn-success btn-lg"
 
--if @books.present?
-  .row
-    - @books["items"].each do |book|
-      -if book["volumeInfo"]["imageLinks"].present?
-        .offset-xs-2.col-xs-8.col-sm-6.col-md-4.col-lg-3
-          .card.mt-3.bg-light
-            .card-image.mx-auto.my-2
-              = image_tag(book["volumeInfo"]["imageLinks"]["smallThumbnail"], class: "rounded border", size:"180x250")
-            .card-body.bg-white.border-top
-              %h5.card-title.text-truncate= book["volumeInfo"]["title"]
-              -if book["volumeInfo"]["authors"].present?
-                %p.card-text.text-truncate= book["volumeInfo"]["authors"].join("/")
-              -else
-                作者情報無し
-            .card-footer.bg-white.text-center
-              %button.btn.btn-outline-success
-                登録する
+  -if @books.present?
+    .row
+      - @books["items"].each do |book|
+        -if book["volumeInfo"]["imageLinks"].present?
+          .offset-xs-2.col-xs-8.col-sm-6.col-md-4.col-lg-3
+            .card.mt-3.bg-light
+              .card-image.mx-auto.my-2
+                = image_tag(book["volumeInfo"]["imageLinks"]["smallThumbnail"], class: "rounded border", size:"180x250")
+              .card-body.bg-white.border-top
+                %h5.card-title.text-truncate= book["volumeInfo"]["title"]
+                -if book["volumeInfo"]["authors"].present?
+                  %p.card-text.text-truncate= book["volumeInfo"]["authors"].join("/")
+                -else
+                  作者情報無し
+              .card-footer.bg-white.text-center
+                %button.btn.btn-outline-success
+                  登録する

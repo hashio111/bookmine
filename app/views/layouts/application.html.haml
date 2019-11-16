@@ -16,7 +16,6 @@
   %body
     = render "layouts/navbar"
     = yield :cover
-    .container
-      = render "layouts/flash"
-      = yield
+    = render "layouts/flash"
+    = yield
 
