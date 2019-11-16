@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :self_introduction, length: { maximum: 140 }
 
+  mount_uploader :image, ImageUploader
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
