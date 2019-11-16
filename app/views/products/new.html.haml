@@ -1,10 +1,11 @@
-.nav{aria: {label: "breadcrumb"}}
-  %ol.breadcrumb.bg-transparent
-    %li.breadcrumb-item
-      = link_to root_path do
-        %i.fas.fa-home
-    %li.breadcrumb-item.active{aria: {current: "page"}}
-      本を探す
+.container
+  .nav{aria: {label: "breadcrumb"}}
+    %ol.breadcrumb.bg-transparent
+      %li.breadcrumb-item
+        = link_to root_path do
+          %i.fas.fa-home
+      %li.breadcrumb-item.active{aria: {current: "page"}}
+        本を探す
 
 .container
   .row.justify-content-center

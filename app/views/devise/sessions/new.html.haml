@@ -33,7 +33,7 @@
         .card-header 簡単ログイン
         .card-body
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            = f.hidden_field :email, value: "test@gmail.com"
+            = f.hidden_field :email, value: "test6@gmail.com"
             = f.hidden_field :password, value: "111111"
             = f.submit "簡単ログイン", class: "btn btn-outline-success btn-block mt-3"
           %p.mt-4.text-center ワンクリックでログインすることもできます
