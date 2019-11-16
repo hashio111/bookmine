@@ -1,4 +1,13 @@
 .container
+  .nav{aria: {label: "breadcrumb"}}
+    %ol.breadcrumb.bg-transparent
+      %li.breadcrumb-item
+        = link_to root_path do
+          %i.fas.fa-home
+      %li.breadcrumb-item
+        = link_to "マイページ", user_path(current_user)
+      %li.breadcrumb-item.active{aria: {current: "page"}}
+        プロフィール編集
   .row
     .offset-xs-2.col-xs-8.offset-md-3.col-md-6
       .card
@@ -26,7 +35,9 @@
               = f.label :password_confirmation, "パスワード（確認）"
               = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
             .form-group
-              = f.label :self_introduction, "自己紹介"
-              = f.text_area :self_introduction, class: "form-control", rows: "3", placeholder: "自己紹介を記入してみましょう"
+              = f.label :self_introduction, "自己紹介（ 140文字以内）"
+              = f.text_area :self_introduction, class: "form-control", rows: "3", maxlength: "140", placeholder: "自己紹介を記入してみましょう"
               = f.submit "変更する", class: "btn btn-success btn-block mt-4"
-          = link_to "マイページへ戻る", :back
+          .text-center
+            = link_to "マイページ", :back
+            %span へ戻る
