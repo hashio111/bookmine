@@ -17,6 +17,12 @@
             = render "layouts/error_messages", model: f.object
 
             .form-group
+              .text-center
+                = image_tag avatar_url(@user), size: "140x140", class: "rounded-circle"
+                %label
+                  %span.btn.btn-default
+                    = f.file_field :image, class: "form-control"
+            .form-group
               = f.label :name, "ユーザー名"
               = f.text_field :name, autofocus: true, class: "form-control"
             .form-group
