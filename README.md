@@ -20,6 +20,7 @@ https://bookmine.work
 * Bootstrap4を用いたレイアウト
 * AWS
   * EC2
+  * S3
   * Route53
   * ACM
 * Capistrano
