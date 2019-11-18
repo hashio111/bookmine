@@ -15,5 +15,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  
+
+  def show
+    @add_product = Product.new
+  end
+
 
 end

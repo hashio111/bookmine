@@ -17,21 +17,21 @@
         = simple_format @user.self_introduction
   .row.justify-content-center
     .col-md-4.text-center
-      = link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-sm btn-outline-success mt-3"
+      = link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-sm btn-outline-success mt-2"
     .col-md-4
   .row
     .col-md-12
       %ul.nav.nav-tabs.nav-justified.my-3{role: "tablist"}
         %li.nav-item
-          = link_to "リンク１", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
+          = link_to "リンク1", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
         %li.nav-item
           = link_to "リンク2", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
         %li.nav-item
-          = link_to "リンク３", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
+          = link_to "リンク3", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
         %li.nav-item
-          = link_to "リンク４", "#link4", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link4", "aria-selected" => "false"}
+          = link_to "リンク4", "#link4", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link4", "aria-selected" => "false"}
         %li.nav-item
-          = link_to "リンク５", "#link5", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link5", "aria-selected" => "false"}
+          = link_to "リンク5", "#link5", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link5", "aria-selected" => "false"}
       .tab-content
         #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
           リンク１の文章
