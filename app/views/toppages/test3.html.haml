@@ -1,0 +1,12 @@
+%ul#myTab.nav.nav-tabs{:role => "tablist"}
+  %li.nav-item
+    %a#home-tab.nav-link.active{"aria-controls" => "home", "aria-selected" => "true", "data-toggle" => "tab", :href => "#home", :role => "tab"} ホーム
+  %li.nav-item
+    %a#profile-tab.nav-link{"aria-controls" => "profile", "aria-selected" => "false", "data-toggle" => "tab", :href => "#profile", :role => "tab"} プロフィール
+  %li.nav-item
+    %a#contact-tab.nav-link{"aria-controls" => "contact", "aria-selected" => "false", "data-toggle" => "tab", :href => "#contact", :role => "tab"} コンタクト
+/ パネル部分
+#myTabContent.tab-content.mt-3
+  #home.tab-pane.active{"aria-labelledby" => "home-tab", :role => "tabpanel"} ホームの文章です。...
+  #profile.tab-pane{"aria-labelledby" => "profile-tab", :role => "tabpanel"} プロフィールの文章です。...
+  #contact.tab-pane{"aria-labelledby" => "contact-tab", :role => "tabpanel"} コンタクトの文章です。...

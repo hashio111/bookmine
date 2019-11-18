@@ -1,10 +1,11 @@
-.nav{aria: {label: "breadcrumb"}}
-  %ol.breadcrumb.bg-transparent
-    %li.breadcrumb-item
-      = link_to root_path do
-        %i.fas.fa-home
-    %li.breadcrumb-item.active{aria: {current: "page"}}
-      マイページ
+.container
+  .nav{aria: {label: "breadcrumb"}}
+    %ol.breadcrumb.bg-transparent
+      %li.breadcrumb-item
+        = link_to root_path do
+          %i.fas.fa-home
+      %li.breadcrumb-item.active{aria: {current: "page"}}
+        マイページ
 
 .container
   .row.justify-content-center
@@ -18,3 +19,27 @@
     .col-md-4.text-center
       = link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-sm btn-outline-success mt-3"
     .col-md-4
+  .row
+    .col-md-12
+      %ul.nav.nav-tabs.nav-justified.my-3{role: "tablist"}
+        %li.nav-item
+          = link_to "リンク１", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
+        %li.nav-item
+          = link_to "リンク2", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
+        %li.nav-item
+          = link_to "リンク３", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
+        %li.nav-item
+          = link_to "リンク４", "#link4", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link4", "aria-selected" => "false"}
+        %li.nav-item
+          = link_to "リンク５", "#link5", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link5", "aria-selected" => "false"}
+      .tab-content
+        #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
+          リンク１の文章
+        #link2.tab-pane{role: "tabpanel", "aria-labelledby" => "link2-tab"}
+          リンク2の文章
+        #link3.tab-pane{role: "tabpanel", "aria-labelledby" => "link3-tab"}
+          リンク3の文章
+        #link4.tab-pane{role: "tabpanel", "aria-labelledby" => "link4-tab"}
+          リンク4の文章
+        #link5.tab-pane{role: "tabpanel", "aria-labelledby" => "link5-tab"}
+          リンク5の文章
