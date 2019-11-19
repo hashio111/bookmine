@@ -14,10 +14,13 @@ class ProductsController < ApplicationController
       @books = JSON.parse(json)
     end
   end
-
   
+  def product_registration
+    
+  end
 
   def show
+    @product = Product.find_by(id: params[:id])
     @add_product = Product.new
   end
 
