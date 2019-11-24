@@ -30,7 +30,7 @@
                 -if book["volumeInfo"]["authors"].present?
                   %p.card-text.text-truncate= book["volumeInfo"]["authors"].join("/")
                 -else
-                  作者情報無し
+                  作者情報なし
               .card-footer.bg-white.text-center
-                = link_to "#", class: "btn btn-outline-success" do
-                  登録する
+                = link_to product_registration_products_path(title: book["volumeInfo"]["title"], image_url: book["volumeInfo"]["imageLinks"]["smallThumbnail"], author: book["volumeInfo"]["authors"], description: book["volumeInfo"]["description"], publisher: book["volumeInfo"]["publisher"], release_date: book["volumeInfo"]["publishedDate"]), class: "btn btn-outline-success" do
+                  詳細を見る
