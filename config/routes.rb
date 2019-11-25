@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       get :product_registration
     end
   end
+
+  resources :likes, only: %i[create destroy]
 end

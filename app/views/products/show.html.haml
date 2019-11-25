@@ -15,15 +15,14 @@
       .card.bg-light
         .card-image.mx-auto.my-2
           = image_tag(@product.image_url, class: "rounded border")
-        .card-body.bg-white.border-top
-          %h5.card-title.text-truncate= @product.title
-          - if @product.author.present?
-            %p.card-text.text-truncate= @product.author
-          - else
-            作者情報無し
+        .card-body.bg-white.border-top.text-center
+          = form_with url: likes_path, method: :post, local: true do |f|
+            = f.hidden_field :product_id, value: @product.id
+            = f.submit "お気に入り追加", class: "btn btn-outline-success"
         .card-footer.bg-white.text-center
-          = link_to "#", class: "btn btn-outline-success" do
-            登録する
+          = link_to "#", class: "btn btn-outline-primary" do
+            口コミを投稿する
+
     .col-xs-12.col-sm-12.col-md-6
       %table.table
         %tbody
