@@ -1,0 +1,51 @@
+.user-status-cell
+  %ul#pills-tab.nav.nav-pills.justify-content-around.justify-content-md-center{:role => "tablist"}
+    %li.nav-item
+      = link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-post-tab", href: "#pills-post", |
+        role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-post", "aria-selected" => "true"} do                               |
+        .user-status
+          .status-name.p-0 投稿
+          .status-value= @user.posts.count.to_s(:delimited)
+    %li.nav-item
+      = link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-following-tab", href: "#pills-following", |
+        role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-following", "aria-selected" => "true"} do                                    |
+        .user-status
+          .status-name.p-0 フォロー中
+          .status-value{:id => "following_#{@user.id}"}= @user.following.count.to_s(:delimited)
+    %li.nav-item
+      = link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-follower-tab", href: "#pills-follower", |
+        role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-follower", "aria-selected" => "true"} do                                   |
+        .user-status
+          .status-name.p-0 フォロワー
+          .status-value{:id => "followers_#{@user.id}"}= @user.followers.count.to_s(:delimited)
+    %li.nav-item
+      = link_to "#", { class: "nav-link d-flex align-items-center justify-content-center px-0", id: "pills-lover-tab", href: "#pills-lover", |
+        role: "tab", "data-toggle" => "pill", "aria-controls" => "pills-lover", "aria-selected" => "true"} do                                |
+        .user-status
+          .status-name.p-0 いいね
+          .status-value= @user.likes.count.to_s(:delimited)
+#pills-tabContent.tab-content.user-profile-contents
+  #pills-post.tab-pane.fade{"aria-labelledby" => "pills-post-tab", :role => "tabpanel"}
+    - if @user.posts.any?
+      = render 'show_latest', group: @posts
+    - else
+      .no-contents.d-flex.align-items-center.justify-content-center.mx-auto
+        投稿がありません
+  #pills-following.tab-pane.fade{"aria-labelledby" => "pills-following-tab", :role => "tabpanel"}
+    - if @following.any?
+      = render 'show_following', group: @following
+    - else
+      .no-contents.d-flex.align-items-center.justify-content-center.mx-auto
+        誰もフォローしていません
+  #pills-follower.tab-pane.fade{"aria-labelledby" => "pills-follower-tab", :role => "tabpanel"}
+    - if @followers.any?
+      = render 'show_followers', group: @followers
+    - else
+      .no-contents.d-flex.align-items-center.justify-content-center.mx-auto
+        フォローされていません
+  #pills-lover.tab-pane.fade{"aria-labelledby" => "pills-lover-tab", :role => "tabpanel"}
+    - if @user.likes.any?
+      = render 'show_likes', group: @likes
+    - else
+      .no-contents.d-flex.align-items-center.justify-content-center.mx-auto
+        "いいね！" した投稿がありません
