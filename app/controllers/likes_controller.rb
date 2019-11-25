@@ -11,6 +11,21 @@ class LikesController < ApplicationController
     end
   end
 
+  def destroy
+    like = current_user.likes.find_by(product_id: params[:id])
+    if like.user_id == current_user.id
+      if like.destroy
+        flash[:success] = "お気に入り登録を解除しました"
+        redirect_back(fallback_location: root_path)
+      else
+        flash[:danger] = "お気に入り登録の解除に失敗しました"
+        redirect_back(fallback_location: root_path)
+      end
+    end
+  end
+
+
+
   private
 
   def like_params

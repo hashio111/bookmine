@@ -16,9 +16,13 @@
         .card-image.mx-auto.my-2
           = image_tag(@product.image_url, class: "rounded border")
         .card-body.bg-white.border-top.text-center
-          = form_with url: likes_path, method: :post, local: true do |f|
-            = f.hidden_field :product_id, value: @product.id
-            = f.submit "お気に入り追加", class: "btn btn-outline-success"
+          - if current_user.products.where(id: @product.id).length == 0
+            = form_with url: likes_path, method: :post, local: true do |f|
+              = f.hidden_field :product_id, value: @product.id
+              = f.submit "お気に入り登録", class: "btn btn-outline-success"
+          - else
+            = form_with url: like_path(@product), method: :delete, local: true do |f|
+              = f.submit "お気に入り登録中", class: "btn btn-success"
         .card-footer.bg-white.text-center
           = link_to "#", class: "btn btn-outline-primary" do
             口コミを投稿する
