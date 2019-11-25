@@ -31,7 +31,6 @@ https://bookmine.work
 * レビュー検索機能(ransak)
 * ページネーション機能(kaminari)
 * ユーザーフォロー機能
-* いいね機能
 * Rspecによるテスト
 * dockerで開発環境の構築
 * circleciの導入
