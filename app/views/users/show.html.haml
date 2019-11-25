@@ -25,7 +25,7 @@
         %li.nav-item
           = link_to "投稿", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
         %li.nav-item
-          = link_to "お気に入り", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
+          = link_to "お気に入り #{@products.length}", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
         %li.nav-item
           = link_to "フォロー", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
         %li.nav-item
@@ -34,7 +34,22 @@
         #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
           投稿コンテンツ
         #link2.tab-pane{role: "tabpanel", "aria-labelledby" => "link2-tab"}
-          お気に入りコンテンツ
+          .row
+            - @products.each do |product|
+              -if product.image_url.present?
+                .offset-xs-2.col-xs-8.col-sm-6.col-md-4.col-lg-3
+                  .card.mt-3.bg-light
+                    .card-image.mx-auto.my-2
+                      = image_tag(product.image_url, class: "rounded border", size:"180x250")
+                    .card-body.bg-white.border-top
+                      %h5.card-title.text-truncate= product.title
+                      -if product.author.present?
+                        %p.card-text.text-truncate= product.author
+                      -else
+                        作者情報なし
+                    .card-footer.bg-white.text-center
+                      = link_to product_path(product), class: "btn btn-outline-success" do
+                        詳細を見る
         #link3.tab-pane{role: "tabpanel", "aria-labelledby" => "link3-tab"}
           フォローユーザー
         #link4.tab-pane{role: "tabpanel", "aria-labelledby" => "link4-tab"}
