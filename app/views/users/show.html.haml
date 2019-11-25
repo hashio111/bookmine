@@ -23,23 +23,19 @@
     .col-md-12
       %ul.nav.nav-tabs.nav-justified.my-3{role: "tablist"}
         %li.nav-item
-          = link_to "リンク1", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
+          = link_to "投稿", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
         %li.nav-item
-          = link_to "リンク2", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
+          = link_to "お気に入り", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
         %li.nav-item
-          = link_to "リンク3", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
+          = link_to "フォロー", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
         %li.nav-item
-          = link_to "リンク4", "#link4", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link4", "aria-selected" => "false"}
-        %li.nav-item
-          = link_to "リンク5", "#link5", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link5", "aria-selected" => "false"}
+          = link_to "フォロワー", "#link4", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link4", "aria-selected" => "false"}
       .tab-content
         #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
-          リンク１の文章
+          投稿コンテンツ
         #link2.tab-pane{role: "tabpanel", "aria-labelledby" => "link2-tab"}
-          リンク2の文章
+          お気に入りコンテンツ
         #link3.tab-pane{role: "tabpanel", "aria-labelledby" => "link3-tab"}
-          リンク3の文章
+          フォローユーザー
         #link4.tab-pane{role: "tabpanel", "aria-labelledby" => "link4-tab"}
-          リンク4の文章
-        #link5.tab-pane{role: "tabpanel", "aria-labelledby" => "link5-tab"}
-          リンク5の文章
+          フォロワー

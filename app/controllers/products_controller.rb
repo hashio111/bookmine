@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   def product_registration
     product = Product.where(title: params[:title]).first_or_initialize
     product.image_url = params[:image_url]
-    product.author = params[:author].join("/") if params[:author].length >= 1 
+    product.author = params[:author].join("/") if params[:author] != nil 
     product.description = params[:description]
     product.publisher = params[:publisher]
     product.release_date = params[:release_date]
