@@ -25,7 +25,10 @@
         %li.nav-item
           = link_to "投稿", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
         %li.nav-item
-          = link_to "お気に入り #{@products.length}", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
+          = link_to "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"} do
+            お気に入り
+            %span.badge.badge-pill.badge-secondary
+              = @products.length
         %li.nav-item
           = link_to "フォロー", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
         %li.nav-item
