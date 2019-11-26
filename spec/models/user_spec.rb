@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe User do
-
   describe 'バリデーション' do
     it "name、email、password、password_confirmationが存在すれば登録できること" do
       user = build(:user)
@@ -11,7 +10,7 @@ describe User do
     it "nameが空の場合登録できないこと" do
       user = build(:user, name: "")
       user.valid?
-      expect(user.errors[:name]).to include("を入力してください") 
+      expect(user.errors[:name]).to include("を入力してください")
     end
 
     it "emailが空の場合登録できないこと" do
@@ -61,7 +60,5 @@ describe User do
       user.valid?
       expect(user.errors[:password]).to include("は6文字以上で入力してください")
     end
-
   end
-
 end
