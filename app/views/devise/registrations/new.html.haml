@@ -15,8 +15,8 @@
             = render "layouts/error_messages", model: f.object
 
             .form-group
-              = f.label :name, "ユーザー名"
-              = f.text_field :name, autofocus: true, class: "form-control"
+              = f.label :name, "ユーザー名 (20文字以内)"
+              = f.text_field :name, autofocus: true, class: "form-control", maxlength: "20"
             .form-group
               = f.label :email, "メールアドレス"
               = f.email_field :email, autocomplete: "email", class: "form-control"
