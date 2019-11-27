@@ -31,14 +31,14 @@ describe User do
       expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
-    it "nameが20文字以上であれば登録できないこと" do
-      user = build(:user, name: "aaaaaaaaaaaaaaaaaaaaa")
+    it "nameが16文字以上であれば登録できないこと" do
+      user = build(:user, name: "aaaaaaaaaaaaaaaa")
       user.valid?
-      expect(user.errors[:name]).to include("は20文字以内で入力してください")
+      expect(user.errors[:name]).to include("は15文字以内で入力してください")
     end
 
-    it "nameが20文字以下であれば登録できること" do
-      user = build(:user, name: "aaaaaaaaaaaaaaaaaaaa")
+    it "nameが15文字以下であれば登録できること" do
+      user = build(:user, name: "aaaaaaaaaaaaaaa")
       expect(user).to be_valid
     end
 

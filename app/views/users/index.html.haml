@@ -6,5 +6,6 @@
           %i.fas.fa-home
       %li.breadcrumb-item.active{aria: {current: "page"}}
         ユーザーを探す
-  %h2.text-center.mt-3 すべてのユーザー
-  = render "user_list", group: @users
+
+  %h2.text-center すべてのユーザー
+  = render "user_list", users: @users
