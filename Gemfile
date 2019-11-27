@@ -79,5 +79,6 @@ gem 'devise'
 gem 'fog-aws'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
