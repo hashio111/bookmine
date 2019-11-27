@@ -28,7 +28,7 @@
           = link_to "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"} do
             お気に入り
             %span.badge.badge-pill.badge-secondary
-              = @products.length
+              = @likes.length
         %li.nav-item
           = link_to "フォロー", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
         %li.nav-item
@@ -37,7 +37,7 @@
         #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
           投稿コンテンツ
         #link2.tab-pane{role: "tabpanel", "aria-labelledby" => "link2-tab"}
-          = render "likes_list", products: @products
+          = render "likes_list", likes: @likes
         #link3.tab-pane{role: "tabpanel", "aria-labelledby" => "link3-tab"}
           フォローユーザー
         #link4.tab-pane{role: "tabpanel", "aria-labelledby" => "link4-tab"}
