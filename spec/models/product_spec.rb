@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User do
+describe Product do
   it "titleがないと登録できないこと" do
     product = build(:product, title: "")
     product.valid?
