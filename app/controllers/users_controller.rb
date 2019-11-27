@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @likes = @user.products
-
+    @likes = @user.products.page(params[:page]).per(12)
+    @following = @user.following.page(params[:page]).per(12)
+    @followers = @user.followers.page(params[:page]).per(12)
   end
 end
