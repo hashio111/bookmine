@@ -1,0 +1,16 @@
+.row
+  - products.each do |product|
+    -if product.image_url.present?
+      .offset-xs-2.col-xs-8.col-sm-6.col-md-4.col-lg-3
+        .card.mt-3.bg-light
+          .card-image.mx-auto.my-2
+            = image_tag(product.image_url, class: "rounded border", size:"180x250")
+          .card-body.bg-white.border-top
+            %h5.card-title.text-truncate= product.title
+            -if product.author.present?
+              %p.card-text.text-truncate= product.author
+            -else
+              作者情報なし
+          .card-footer.bg-white.text-center
+            = link_to product_path(product), class: "btn btn-outline-success" do
+              詳細を見る

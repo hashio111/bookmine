@@ -6,4 +6,5 @@
           = link_to user_path(user) do
             = image_tag avatar_url(user), class: "rounded-circle mb-3", size:"80x80"
           %h5= user.name
-          = link_to "フォロー", "#", class: "btn btn-success rounded-pill"
+          - if user_signed_in?
+            = render "card_follow_form", object: user
