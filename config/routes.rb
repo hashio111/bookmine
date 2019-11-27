@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'toppages#index'
 
-  resources :users, only: %i[show]
+  resources :users, only: %i[index show]
   resources :products, only: %i[index new show] do
     collection do
       get :product_registration

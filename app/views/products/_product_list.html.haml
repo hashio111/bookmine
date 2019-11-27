@@ -1,0 +1,17 @@
+-if products.present?
+  .row
+    - products["items"].each do |product|
+      -if product["volumeInfo"]["imageLinks"].present?
+        .offset-xs-2.col-xs-8.col-sm-6.col-md-4.col-lg-3
+          .card.mt-3.bg-light
+            .card-image.mx-auto.my-2
+              = image_tag(product["volumeInfo"]["imageLinks"]["smallThumbnail"].insert(4, "s"), class: "rounded border", size:"180x250")
+            .card-body.bg-white.border-top
+              %h5.card-title.text-truncate= product["volumeInfo"]["title"]
+              -if product["volumeInfo"]["authors"].present?
+                %p.card-text.text-truncate= product["volumeInfo"]["authors"].join("/")
+              -else
+                作者情報なし
+            .card-footer.bg-white.text-center
+              = link_to product_registration_products_path(title: product["volumeInfo"]["title"], image_url: product["volumeInfo"]["imageLinks"]["smallThumbnail"], author: product["volumeInfo"]["authors"], description: product["volumeInfo"]["description"], publisher: product["volumeInfo"]["publisher"], release_date: product["volumeInfo"]["publishedDate"]), class: "btn btn-outline-success" do
+                詳細を見る

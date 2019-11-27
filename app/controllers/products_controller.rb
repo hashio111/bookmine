@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
       enc_str = URI.encode(request)
       uri = URI.parse(enc_str)
       json = Net::HTTP.get(uri)
-      @books = JSON.parse(json)
+      @products = JSON.parse(json)
     end
   end
 
