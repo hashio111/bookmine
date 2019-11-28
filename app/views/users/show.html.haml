@@ -25,23 +25,27 @@
         %li.nav-item
           = link_to "投稿", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
         %li.nav-item
-          = link_to "#like", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "like", "aria-selected" => "false"} do
+          = link_to "#likes", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes", "aria-selected" => "false"} do
             お気に入り
             %span.badge.badge-pill.badge-secondary
               = @likes.length
         %li.nav-item
           = link_to "#following", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "following", "aria-selected" => "false"} do
             フォロー
-            %spann.badge.badge-pill.badge-secondary
+            %span.badge.badge-pill.badge-secondary
               = @following.length
         %li.nav-item
-          = link_to "フォロワー", "#link4", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link4", "aria-selected" => "false"}
+          = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "false"} do
+            フォロワー
+            %span.badge.badge-pill.badge-secondary
+              = @followers.length
+
       .tab-content
         #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
           投稿コンテンツ
-        #like.tab-pane{role: "tabpanel", "aria-labelledby" => "like-tab"}
+        #likes.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
           = render "like_list", likes: @likes
         #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
           = render "following_list", users: @following  
-        #link4.tab-pane{role: "tabpanel", "aria-labelledby" => "link4-tab"}
-          フォロワー
+        #followers.tab-pane{role: "tabpanel", "aria-labelledby" => "followers-tab"}
+          = render "followers_list", users: @followers
