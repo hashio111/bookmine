@@ -15,8 +15,10 @@ https://bookmine.work
 * haml
 
 ## 機能、使用技術
-* ユーザー登録・ログイン機能(devise)
+* ユーザー登録・編集機能(devise)
 * 書籍検索機能(GoogleBooks api)
+* ユーザーフォロー機能
+* ページネーション機能(kaminari)
 * Bootstrap4を用いたレイアウト
 * AWS
   * EC2
@@ -29,8 +31,6 @@ https://bookmine.work
 
 ## 今後実装してきたいこと
 * レビュー投稿機能(CRUD)
-* レビュー検索機能(ransak)
-* ページネーション機能(kaminari)
-* ユーザーフォロー機能
+* ユーザー・レビュー検索機能(ransak)
 * dockerで開発環境の構築
 * circleciの導入
