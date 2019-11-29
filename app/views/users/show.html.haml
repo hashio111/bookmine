@@ -32,12 +32,12 @@
         %li.nav-item
           = link_to "#following", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "following", "aria-selected" => "false"} do
             フォロー
-            %span.badge.badge-pill.badge-secondary
+            %span.badge.badge-pill.badge-secondary{id: "following_#{@user.id}"}
               = @following.length
         %li.nav-item
           = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "false"} do
             フォロワー
-            %span.badge.badge-pill.badge-secondary.followers
+            %span.badge.badge-pill.badge-secondary
               = @followers.length
 
       .tab-content
