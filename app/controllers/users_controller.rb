@@ -21,5 +21,4 @@ class UsersController < ApplicationController
         @q.result(distinct: true).page(params[:page]).per(12)
       end
   end
-
 end
