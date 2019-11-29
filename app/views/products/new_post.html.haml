@@ -7,9 +7,12 @@
       %li.breadcrumb-item
         = link_to new_product_path do
           本を探す
+      %li.breadcrumb-item
+        = link_to product_path(@product) do
+          本の詳細
       %li.breadcrumb-item.active{aria: {current: "page"}}
-        本の詳細
-  %h2.text-center 本の詳細
+        口コミ投稿
+  %h2.text-center 口コミを投稿する
 
   .row.justify-content-center
     .col-sm-10.col-md-3.mb-3
@@ -32,20 +35,13 @@
             口コミを投稿する
 
     .col.col-sm-12.col-md-6
-      %table.table
-        %tbody
-          %tr
-            %th タイトル
-            %td= @product.title
-          %tr
-            %th 著者
-            %td= @product.author
-          %tr
-            %th 説明
-            %td.text-break= simple_format @product.description
-          %tr
-            %th 出版社
-            %td= @product.publisher
-          %tr
-            %th 発売日
-            %td= @product.release_date
+      = form_with url: posts_path, method: :post, local: true do |f|
+        .form-group
+          = f.label :title, "タイトル"
+          = f.text_field :title, class: "form-control"
+        .form-group#star
+          = f.label :rate, "評価"
+          = f.hidden_field :rate, id: :review_star
+        .form-group
+          = f.label :content, "内容"
+          = f.text_area :content, class: "form-control", rows: "8", placeholder: "口コミを書いてみましょう。タイトルと評価のみでも投稿できます。"
