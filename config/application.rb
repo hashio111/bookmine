@@ -15,6 +15,9 @@ module Bookmine
       g.javascripts false
       g.helper false
       g.test_framework false
+
+    # 認証トークンをremoteフォームに埋め込む
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     end
   end
 end

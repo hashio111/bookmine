@@ -10,7 +10,7 @@
 .container
   .row.justify-content-center
     .col-md-4.text-center
-      = image_tag avatar_url(@user), size: "140x140", class: "rounded-circle"
+      = image_tag avatar_url(@user), size: "140x140", class: "rounded-circle mb-2"
     .col-md-4.text-center
       %h3.font-weight-bold.mt-2.text-break= @user.name
       .self-introduction.text-break.text-justify
@@ -37,7 +37,7 @@
         %li.nav-item
           = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "false"} do
             フォロワー
-            %span.badge.badge-pill.badge-secondary
+            %span.badge.badge-pill.badge-secondary.followers
               = @followers.length
 
       .tab-content
