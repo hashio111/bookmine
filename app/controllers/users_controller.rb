@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def search
     @q = User.ransack(params[:q])
+    @key_word = params[:q][:name_cont]
     @users =
       if params[:q][:name_cont].blank?
         redirect_to users_path

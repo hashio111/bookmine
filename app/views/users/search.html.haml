@@ -8,7 +8,7 @@
         = link_to users_path do
           ユーザーを探す
       %li.breadcrumb-item.active{aria: {current: "page"}}
-        ユーザー検索結果
+        = "#{@key_word}の検索結果"
 
 
 .container
