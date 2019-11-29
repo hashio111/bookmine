@@ -10,14 +10,14 @@
 .container
   .row.justify-content-center
     .col-md-4.text-center
-      = image_tag avatar_url(@user), size: "140x140", class: "rounded-circle"
+      = image_tag avatar_url(@user), size: "140x140", class: "rounded-circle mb-2"
     .col-md-4.text-center
-      %h3.font-weight-bold.mt-2= @user.name
+      %h3.font-weight-bold.mt-2.text-break= @user.name
       .self-introduction.text-break.text-justify
         = simple_format @user.self_introduction
   .row.justify-content-center
     .col-md-4.text-center
-      = link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-sm btn-outline-success mt-2"
+      = render "profile_follow_form", user: @user
     .col-md-4
   .row
     .col-md-12
@@ -25,32 +25,27 @@
         %li.nav-item
           = link_to "投稿", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
         %li.nav-item
-          = link_to "お気に入り #{@products.length}", "#link2", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link2", "aria-selected" => "false"}
+          = link_to "#likes", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes", "aria-selected" => "false"} do
+            お気に入り
+            %span.badge.badge-pill.badge-secondary
+              = @likes.length
         %li.nav-item
-          = link_to "フォロー", "#link3", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link3", "aria-selected" => "false"}
+          = link_to "#following", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "following", "aria-selected" => "false"} do
+            フォロー
+            %span.badge.badge-pill.badge-secondary{id: "following_#{@user.id}"}
+              = @following.length
         %li.nav-item
-          = link_to "フォロワー", "#link4", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "link4", "aria-selected" => "false"}
+          = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "false"} do
+            フォロワー
+            %span.badge.badge-pill.badge-secondary
+              = @followers.length
+
       .tab-content
         #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
           投稿コンテンツ
-        #link2.tab-pane{role: "tabpanel", "aria-labelledby" => "link2-tab"}
-          .row
-            - @products.each do |product|
-              -if product.image_url.present?
-                .offset-xs-2.col-xs-8.col-sm-6.col-md-4.col-lg-3
-                  .card.mt-3.bg-light
-                    .card-image.mx-auto.my-2
-                      = image_tag(product.image_url, class: "rounded border", size:"180x250")
-                    .card-body.bg-white.border-top
-                      %h5.card-title.text-truncate= product.title
-                      -if product.author.present?
-                        %p.card-text.text-truncate= product.author
-                      -else
-                        作者情報なし
-                    .card-footer.bg-white.text-center
-                      = link_to product_path(product), class: "btn btn-outline-success" do
-                        詳細を見る
-        #link3.tab-pane{role: "tabpanel", "aria-labelledby" => "link3-tab"}
-          フォローユーザー
-        #link4.tab-pane{role: "tabpanel", "aria-labelledby" => "link4-tab"}
-          フォロワー
+        #likes.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
+          = render "like_list", likes: @likes
+        #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
+          = render "following_list", users: @following  
+        #followers.tab-pane{role: "tabpanel", "aria-labelledby" => "followers-tab"}
+          = render "followers_list", users: @followers
