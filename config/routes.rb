@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       get :following
       get :followers
     end
+    collection do
+      get :search
+    end
   end
   resources :products, only: %i[index new show] do
     collection do

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.page(params[:page]).per(12)
+    @q = User.ransack(params[:q])
   end
 
   def show
@@ -9,4 +10,16 @@ class UsersController < ApplicationController
     @following = @user.following.page(params[:page]).per(12)
     @followers = @user.followers.page(params[:page]).per(12)
   end
+
+  def search
+    @q = User.ransack(params[:q])
+    @key_word = params[:q][:name_cont]
+    @users =
+      if params[:q][:name_cont].blank?
+        redirect_to users_path
+      else
+        @q.result(distinct: true).page(params[:page]).per(12)
+      end
+  end
+
 end
