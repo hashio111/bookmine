@@ -18,6 +18,7 @@ https://bookmine.work
 * ユーザー登録・編集機能(devise)
 * 書籍検索機能(GoogleBooks api)
 * ユーザーフォロー機能
+* ユーザー検索機能(ransack)
 * ページネーション機能(kaminari)
 * Bootstrap4を用いたレイアウト
 * AWS
@@ -31,6 +32,5 @@ https://bookmine.work
 
 ## 今後実装してきたいこと
 * レビュー投稿機能(CRUD)
-* ユーザー・レビュー検索機能(ransak)
 * dockerで開発環境の構築
 * circleciの導入
