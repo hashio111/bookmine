@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
   def set_user
     @user = User.new unless user_signed_in?
   end
