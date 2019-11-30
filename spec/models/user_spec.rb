@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  describe 'バリデーション' do
+  describe "バリデーション" do
     it "name、email、password、password_confirmationが存在すれば登録できること" do
       user = build(:user)
       expect(user).to be_valid
