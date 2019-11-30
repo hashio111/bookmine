@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
 
   def new_post
     @product = Product.find_by(id: params[:id])
+    @post = Post.new
   end
 
   def show
