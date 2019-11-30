@@ -45,5 +45,5 @@ class User < ApplicationRecord
     result = update_attributes(params, *options)
     clean_up_passwords
     result
-  end
+  end  
 end

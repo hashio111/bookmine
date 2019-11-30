@@ -9,8 +9,9 @@ class PostsController < ApplicationController
       flash[:success] = "口コミを投稿しました"
       redirect_to product_path(post.product_id)
     else
-      flash.now[:danger] = "口コミの投稿に失敗しました"
-      render "products/new_post"
+      @post = post
+      @product = Product.find(params[:post][:product_id])
+      render 'products/new_post'
     end
   end
 
