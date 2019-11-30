@@ -35,3 +35,15 @@
           = f.text_area :content, class: "form-control", rows: "8", placeholder: "口コミを書いてみましょう。タイトルと評価のみでも投稿できます。"
         .form-group.text-center
           = f.submit "投稿する", class: "btn btn-primary"
+
+:javascript
+  $(document).on('turbolinks:load', function(){
+    $('#star').raty({
+      size     : 36,
+      starOff:  '#{asset_path('star-off.png')}',
+      starOn : '#{asset_path('star-on.png')}',
+      starHalf: '#{asset_path('star-half.png')}',
+      scoreName: 'post[rate]',
+      half: true,
+    });
+  })
