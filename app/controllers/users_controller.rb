@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @q = User.ransack(params[:q])
     @key_word = params[:q][:name_cont]
     @users =
-      if params[:q][:name_cont].blank?
+      if @key_word.blank?
         redirect_to users_path
       else
         @q.result(distinct: true).page(params[:page])

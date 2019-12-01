@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   root 'toppages#index'
 
-  resources :posts, only: %i[index create]
+  resources :posts, only: %i[index create] do
+    collection do
+      get :search
+    end
+  end
   resources :users, only: %i[index show] do
     member do
       get :following

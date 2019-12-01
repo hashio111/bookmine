@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
-  def index; end
+  def index
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
+  end
 
   def create
     post = Post.new(post_params)
@@ -13,6 +16,18 @@ class PostsController < ApplicationController
       render 'products/new_post'
     end
   end
+
+  def search
+    @q = Post.ransack(params[:q])
+    @key_word = params[:q][:title_or_content_or_product_title_cont]
+    @posts =
+      if @key_word.blank?
+        redirect_to users_path
+      else
+        @q.result(distinct: true).order(created_at: :desc).page(params[:page])
+      end
+  end
+
 
   private
 

@@ -3,18 +3,20 @@
     - posts.each do |post|
       .row.border.mt-4.rounded.border-white.bg-white
         .col-sm-12.col-md-2.d-flex.justify-content-center.post-box
-          .card
-            .card-image
-              = link_to product_path(post) do
-                = image_tag post.product.image_url, size: "120x160"
+          = link_to product_path(post) do
+            = image_tag post.product.image_url, class: "border border-muted rounded", size: "120x160"
         .col-sm-12.col-md-10
           %table.table.mt-4
             %tbody
               %tr
-                %td= "タイトル : #{post.title}"
+                %th 書籍名
+                %td= post.product.title
               %tr
-                %td= "評価 : "
-                %span{id: "star-rate-#{post.id}"}
+                %th タイトル
+                %td= post.title
+              %tr
+                %th 評価 
+                %td= post.rate
 :javascript
   $('#star').raty({
     size     : 36,
