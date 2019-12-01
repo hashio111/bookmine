@@ -2,6 +2,7 @@ body {
   background: #f2f2f2f2;
 }
 
+// トップページ
 .cover {
   background: image-url("top-img.jpg") center center no-repeat;
   background-size: cover;
@@ -34,10 +35,16 @@ body {
   }
 }
 
+.new-post {
+  height: 160px;
+  background: white;
+}
+
 .self-introduction {
   color: #606060;
 }
 
+// 口コミリスト
 .post-box {
   max-width: 1140px;
   .image-box {
@@ -45,6 +52,7 @@ body {
   }
 }
 
+// テーブル
 tbody {
   tr {
     th {
@@ -53,6 +61,7 @@ tbody {
     td {
       width: 80%;
     }
+
   }
 }
 

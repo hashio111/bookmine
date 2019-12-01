@@ -8,15 +8,15 @@
               = image_tag post.product.image_url, class: "border border-muted rounded mb-2", size: "120x160"
    
         .col-sm-12.col-md-10
-          %table.table.mt-4
+          .m-3
+            = link_to user_path(post.user), class: "text-decoration-none" do
+              = image_tag avatar_url(post.user), class: "rounded-circle", size: "40x40"
+              %span.align-middle.ml-3.text-dark
+                = post.user.name
+            .text-muted.mt-1
+              = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          %table.table
             %tbody.text-break
-              %tr
-                %th 投稿者
-                %td
-                  = link_to user_path(post.user), class: "text-decoration-none" do
-                    = image_tag post.user.image.url, class: "rounded-circle", size: "40x40"
-                    %span.align-middle.ml-3.text-dark= post.user.name
-
               %tr
                 %th 書籍名
                 %td= post.product.title
@@ -25,7 +25,10 @@
                 %td= post.title
               %tr
                 %th 評価 
-                %td{id: "star-rate-#{post.id}"}
+                %td
+                  %span{id: "star-rate-#{post.id}"}
+                  %span.align-middle.ml-3.font-weight-bold
+                    = post.rate
               %tr
                 %th 口コミ
                 %td= simple_format post.content
