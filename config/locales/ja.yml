@@ -4,6 +4,10 @@ ja:
     attributes:
       user:
         name: ユーザー名
+      post:
+        title: タイトル
+        rate: 評価
+        user_id: あなたの口コミ
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

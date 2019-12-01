@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :products, through: :likes
   has_many :active_relationships, class_name: "Relationship",
@@ -18,6 +19,9 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  # ページネーションの表示件数
+  paginates_per 12
 
   # ユーザーをフォローする
   def follow(other_user)

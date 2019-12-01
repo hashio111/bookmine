@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'toppages#index'
 
+  resources :posts, only: %i[index create]
   resources :users, only: %i[index show] do
     member do
       get :following
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
     end
   end
   resources :products, only: %i[index new show] do
+    member do
+      get :new_post
+    end
     collection do
       get :product_registration
     end

@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new_post]
+  before_action :set_user, only: %i[new show]
   require 'net/http'
   def index; end
 
   def new
     if params[:key_word].present?
-      @user = User.new
       url = 'https://www.googleapis.com/books/v1/volumes?q='
       request = url + params[:key_word].to_s
       enc_str = URI.encode(request)
@@ -24,7 +25,18 @@ class ProductsController < ApplicationController
     redirect_to product_path(product) if product.save
   end
 
+  def new_post
+    @product = Product.find_by(id: params[:id])
+    @post = Post.new
+  end
+
   def show
     @product = Product.find_by(id: params[:id])
+  end
+
+  private
+
+  def set_user
+    @user = User.new unless user_signed_in?
   end
 end

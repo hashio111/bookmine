@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   def index
-    @users = User.page(params[:page]).per(12)
+    @users = User.page(params[:page])
     @q = User.ransack(params[:q])
   end
 
   def show
     @user = User.find_by(id: params[:id])
-    @likes = @user.products.page(params[:page]).per(12)
-    @following = @user.following.page(params[:page]).per(12)
-    @followers = @user.followers.page(params[:page]).per(12)
+    @likes = @user.products.page(params[:page])
+    @following = @user.following.page(params[:page])
+    @followers = @user.followers.page(params[:page])
   end
 
   def search
@@ -18,8 +18,7 @@ class UsersController < ApplicationController
       if params[:q][:name_cont].blank?
         redirect_to users_path
       else
-        @q.result(distinct: true).page(params[:page]).per(12)
+        @q.result(distinct: true).page(params[:page])
       end
   end
-
 end
