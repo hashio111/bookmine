@@ -37,3 +37,18 @@ body {
 .self-introduction {
   color: #606060;
 }
+
+.post-box {
+  padding: 10px;
+}
+
+tbody {
+  tr {
+    th {
+      width: 30%;
+    }
+    td {
+      width: 70%;
+    }
+  }
+}

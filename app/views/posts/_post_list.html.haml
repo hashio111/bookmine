@@ -1,0 +1,26 @@
+.container
+  - if posts.present?
+    - posts.each do |post|
+      .row.border.mt-4.rounded.border-white.bg-white
+        .col-sm-12.col-md-2.d-flex.justify-content-center.post-box
+          .card
+            .card-image
+              = link_to product_path(post) do
+                = image_tag post.product.image_url, size: "120x160"
+        .col-sm-12.col-md-10
+          %table.table.mt-4
+            %tbody
+              %tr
+                %td= "タイトル : #{post.title}"
+              %tr
+                %td= "評価 : "
+                %span{id: "star-rate-#{post.id}"}
+:javascript
+  $('#star').raty({
+    size     : 36,
+    starOff:  '#{asset_path('star-off.png')}',
+    starOn : '#{asset_path('star-on.png')}',
+    starHalf: '#{asset_path('star-half.png')}',
+    half: true,
+    readOnly: true
+  });

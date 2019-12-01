@@ -23,7 +23,10 @@
     .col-md-12
       %ul.nav.nav-tabs.nav-justified.my-3{role: "tablist"}
         %li.nav-item
-          = link_to "投稿", "#link1", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "link1", "aria-selected" => "true"}
+          = link_to "#posts", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "posts", "aria-selected" => "true"} do
+            口コミ
+            %span.badge.badge-pill.badge-secondary
+              = @posts.length
         %li.nav-item
           = link_to "#likes", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes", "aria-selected" => "false"} do
             お気に入り
@@ -41,8 +44,8 @@
               = @followers.length
 
       .tab-content
-        #link1.tab-pane.active{role: "tabpanel", "aria-labelledby" => "link1-tab"}
-          投稿コンテンツ
+        #posts.tab-pane.active{role: "tabpanel", "aria-labelledby" => "posts1-tab"}
+          = render "posts/post_list", posts: @posts
         #likes.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
           = render "like_list", likes: @likes
         #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
