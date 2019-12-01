@@ -39,7 +39,10 @@ body {
 }
 
 .post-box {
-  padding: 10px;
+  max-width: 1140px;
+  .image-box {
+    max-height: 160px;
+  }
 }
 
 tbody {

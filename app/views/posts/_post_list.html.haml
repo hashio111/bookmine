@@ -1,13 +1,22 @@
 .container
   - if posts.present?
     - posts.each do |post|
-      .row.border.mt-4.rounded.border-white.bg-white
+      .row.border.my-4.rounded.border-muted.bg-white
         .col-sm-12.col-md-2.d-flex.justify-content-center.post-box
-          = link_to product_path(post) do
-            = image_tag post.product.image_url, class: "border border-muted rounded", size: "120x160"
+          .image-box.mt-4
+            = link_to product_path(post.product) do
+              = image_tag post.product.image_url, class: "border border-muted rounded mb-2", size: "120x160"
+   
         .col-sm-12.col-md-10
           %table.table.mt-4
-            %tbody
+            %tbody.text-break
+              %tr
+                %th 投稿者
+                %td
+                  = link_to user_path(post.user), class: "text-decoration-none" do
+                    = image_tag post.user.image.url, class: "rounded-circle", size: "40x40"
+                    %span.align-middle.ml-3.text-dark= post.user.name
+
               %tr
                 %th 書籍名
                 %td= post.product.title
@@ -16,13 +25,17 @@
                 %td= post.title
               %tr
                 %th 評価 
-                %td= post.rate
-:javascript
-  $('#star').raty({
-    size     : 36,
-    starOff:  '#{asset_path('star-off.png')}',
-    starOn : '#{asset_path('star-on.png')}',
-    starHalf: '#{asset_path('star-half.png')}',
-    half: true,
-    readOnly: true
-  });
+                %td{id: "star-rate-#{post.id}"}
+              %tr
+                %th 口コミ
+                %td= simple_format post.content
+      :javascript
+        $('#star-rate-#{post.id}').raty({
+          size     : 36,
+          starOff:  '#{asset_path('star-off.png')}',
+          starOn : '#{asset_path('star-on.png')}',
+          starHalf: '#{asset_path('star-half.png')}',
+          half: true,
+          readOnly: true,
+          score: '#{post.rate}'
+        });
