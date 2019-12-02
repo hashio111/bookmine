@@ -32,9 +32,24 @@
               %tr
                 %th 口コミ
                 %td= simple_format post.content
-        = link_to edit_post_path(post), class: "btn btn-sm btn-outline-success" do
-          %i.far.fa-edit
-          %span 編集
+        - if post.user.id == current_user.id
+          .col-sm-12.col-md-12.text-right.mb-3
+            = link_to edit_post_path(post), class: "btn btn-sm btn-outline-success" do
+              %i.far.fa-edit
+              %span 編集
+            %button.btn.btn-sm.btn-outline-danger.ml-3{type: "button", data: {toggle: "modal", target: "#destroy-post"}}
+              %i.far.fa-trash-alt
+              %span 削除
+            .modal.fade#destroy-post{tabindex: "-1", role: "dialog", aria: {labelledby: "destroy-post-title", hidden: "true"}}
+              .modal-dialog.modal-dialog-centered{role: "document"}
+                .modal-content
+                  .modal-body
+                    %p.text-center 口コミを削除しますか？
+                  .modal-footer
+                    = link_to post, method: :delete, class: "btn btn-outline-success" do
+                      %span はい
+                    %button.btn.btn-outline-danger.ml-3{data: {dismiss: "modal"}}
+                      いいえ
       :javascript
         $('#star-rate-#{post.id}').raty({
           size     : 36,

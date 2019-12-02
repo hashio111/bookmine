@@ -5,4 +5,6 @@ class Post < ApplicationRecord
   validates :rate, presence: true
   validates :content, length: { maximum: 300 }
   validates :user_id, uniqueness: { scope: [:product_id] }
+
+  paginates_per 6
 end

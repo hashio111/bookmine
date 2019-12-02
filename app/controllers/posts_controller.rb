@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[edit]
-  before_action :set_post, only: %i[edit]
+  before_action :set_post, only: %i[edit update destroy]
+  before_action :set_product, only: %i[create update]
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
@@ -14,8 +15,7 @@ class PostsController < ApplicationController
       redirect_to product_path(post.product_id)
     else
       @post = post
-      @product = Product.find(params[:post][:product_id])
-      render 'products/new_post'
+      render "products/new_post"
     end
   end
 
@@ -23,9 +23,22 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update(post_params)
+      flash[:success] = "口コミを編集しました"
+      redirect_to @product
+    else
+      render :edit
+    end
   end
 
-  def destroy
+  def destroy 
+    if @post.destroy
+      flash[:success] = "口コミを削除しました"
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:dander] = "口コミの削除に失敗しました"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def search
@@ -48,5 +61,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_product
+    @product = Product.find(params[:post][:product_id])
   end
 end
