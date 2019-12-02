@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[index search]
   def index
     @users = User.page(params[:page])
     @q = User.ransack(params[:q])

@@ -34,10 +34,4 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @posts = @product.posts
   end
-
-  private
-
-  def set_user
-    @user = User.new unless user_signed_in?
-  end
 end

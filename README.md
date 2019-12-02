@@ -17,6 +17,7 @@ https://bookmine.work
 ## 機能、使用技術
 * ユーザー登録・編集機能(devise)
 * 書籍検索機能(GoogleBooks api)
+* レビュー投稿機能(CRUD)
 * ユーザーフォロー機能
 * ユーザー検索機能(ransack)
 * ページネーション機能(kaminari)
@@ -31,6 +32,5 @@ https://bookmine.work
 * jQuery
 
 ## 今後実装してきたいこと
-* レビュー投稿機能(CRUD)
 * dockerで開発環境の構築
 * circleciの導入
