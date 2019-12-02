@@ -40,11 +40,13 @@
             %button.btn.btn-sm.btn-outline-danger.ml-3{type: "button", data: {toggle: "modal", target: "#destroy-post"}}
               %i.far.fa-trash-alt
               %span 削除
+
+            -# モーダル
             .modal.fade#destroy-post{tabindex: "-1", role: "dialog", aria: {labelledby: "destroy-post-title", hidden: "true"}}
               .modal-dialog.modal-dialog-centered{role: "document"}
                 .modal-content
                   .modal-body
-                    %p.text-center 口コミを削除しますか？
+                    %h4.text-center 口コミを削除しますか？
                   .modal-footer
                     = link_to post, method: :delete, class: "btn btn-outline-success" do
                       %span はい
