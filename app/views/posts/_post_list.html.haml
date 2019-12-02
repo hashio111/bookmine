@@ -32,7 +32,7 @@
               %tr
                 %th 口コミ
                 %td= simple_format post.content
-        - if post.user.id == current_user.id
+        - if post.user.id == current_user&.id
           .col-sm-12.col-md-12.text-right.mb-3
             = link_to edit_post_path(post), class: "btn btn-sm btn-outline-success" do
               %i.far.fa-edit
