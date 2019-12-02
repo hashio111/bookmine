@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[edit]
   before_action :set_post, only: %i[edit update destroy]
   before_action :set_product, only: %i[create update]
-  before_action :set_user_image, only: %i[index search edit]
+  before_action :set_user, only: %i[index search]
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page])

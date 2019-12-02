@@ -22,8 +22,4 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = User.new unless user_signed_in?
   end
-
-  def set_user_image
-    @user = current_user if user_signed_in?
-  end
 end

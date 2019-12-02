@@ -27,7 +27,7 @@
         - if user_signed_in?
           .dropdown
             %a.text-dark.text-decoration-none.dropdown-toggler{href: "#", role: "button", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}}
-              = image_tag avatar_url(@user), class: "rounded-circle", size: "30x30"
+              = image_tag avatar_url(current_user), class: "rounded-circle", size: "30x30"
               %span= current_user.name
             .dropdown-menu
               = link_to "マイページ", user_path(current_user), class: "dropdown-item"

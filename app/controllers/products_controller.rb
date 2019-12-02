@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new_post]
   before_action :set_user, only: %i[new show]
-  before_action :set_user_image, only: %i[new show new_post]
   require 'net/http'
   def index; end
 
