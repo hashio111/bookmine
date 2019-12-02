@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'toppages#index'
 
-  resources :posts, only: %i[index create] do
+  resources :posts, only: %i[index create edit update destroy] do
     collection do
       get :search
     end

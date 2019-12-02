@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[edit]
+  before_action :set_post, only: %i[edit]
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
@@ -17,6 +19,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
   def search
     @q = Post.ransack(params[:q])
     @key_word = params[:q][:title_or_content_or_product_title_cont]
@@ -33,5 +44,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :rate, :content, :product_id)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
