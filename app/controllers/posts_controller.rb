@@ -19,8 +19,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -31,7 +30,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     if @post.destroy
       flash[:success] = "口コミを削除しました"
       redirect_back(fallback_location: root_path)
@@ -51,7 +50,6 @@ class PostsController < ApplicationController
         @q.result(distinct: true).order(created_at: :desc).page(params[:page])
       end
   end
-
 
   private
 
