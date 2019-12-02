@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: %i[new_post]
   before_action :set_user, only: %i[new show]
+  before_action :set_user_image, only: %i[new show new_post]
   require 'net/http'
   def index; end
 
@@ -33,11 +34,5 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find_by(id: params[:id])
     @posts = @product.posts
-  end
-
-  private
-
-  def set_user
-    @user = User.new unless user_signed_in?
   end
 end
