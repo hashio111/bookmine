@@ -49,3 +49,7 @@
           %tr
             %th 発売日
             %td= @product.release_date
+    .col.col-sm-12.col-md-12
+      %h2.text-center.my-3
+        この本の口コミ
+      = render "posts/post_list", posts: @posts

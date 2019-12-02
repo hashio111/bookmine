@@ -9,3 +9,10 @@
           
         - unless user_signed_in?
           = link_to "BookMineを始める", new_user_session_path, class: "btn btn-success btn-lg mb-5"
+.container
+  .mt-5
+    %h2.text-center 最新の口コミ
+    = render "posts/post_list", posts: @posts
+    .text-center
+      = link_to posts_path, class: "btn btn-success" do
+        口コミをもっと見る

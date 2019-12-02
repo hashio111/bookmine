@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Bookmine
   class Application < Rails::Application
-    config.time_zone = 'Asia/Tokyo'
+    config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
     config.generators do |g|
       g.stylesheets false

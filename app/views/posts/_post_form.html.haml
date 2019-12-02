@@ -1,0 +1,33 @@
+.row.justify-content-center
+  .col-sm-10.col-md-3.mb-3
+    .card.bg-light
+      .card-image.mx-auto.my-2
+        = image_tag(product.image_url, class: "rounded border")
+      .card-body.bg-white.border-top.text-center
+        = link_to product_path(product), class: "btn btn-outline-success" do
+          詳細に戻る
+          
+  .col.col-sm-12.col-md-6
+    = form_with model: @post, local: true do |f|
+      = f.hidden_field :product_id, {value: product.id}
+      .form-group
+        = f.label :title, "タイトル"
+        = f.text_field :title, class: "form-control", maxlength: "50"
+      .form-group#star
+        = f.label :rate, "評価"
+        = f.hidden_field :rate, id: :review_star
+      .form-group
+        = f.label :content, "内容"
+        = f.text_area :content, class: "form-control", rows: "8", placeholder: "口コミを書いてみましょう。タイトルと評価のみでも投稿できます。", maxlength: "300"
+      .form-group.text-center
+        = f.submit "投稿する", class: "btn btn-primary"
+
+:javascript
+  $('#star').raty({
+    size     : 36,
+    starOff:  '#{asset_path('star-off.png')}',
+    starOn : '#{asset_path('star-on.png')}',
+    starHalf: '#{asset_path('star-half.png')}',
+    scoreName: 'post[rate]',
+    half: true,
+  });

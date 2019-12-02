@@ -4,9 +4,11 @@
       %li.breadcrumb-item
         = link_to root_path do
           %i.fas.fa-home
+      %li.breadcrumb-item
+        = link_to posts_path do
+          口コミを探す
       %li.breadcrumb-item.active{aria: {current: "page"}}
-        口コミを探す
-
+        = "#{@key_word}の検索結果"
   .row.justify-content-center
     = search_form_for @q, url: search_posts_path, class: "form-inline" do |f|
       .form-group
@@ -16,5 +18,5 @@
         .col
           = f.submit "検索", class: "btn btn-success btn-md"
 
-  = render "post_list", posts: @posts
-  = paginate @posts
+= render "post_list", posts: @posts
+= paginate @posts
