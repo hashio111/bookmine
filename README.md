@@ -32,5 +32,6 @@ https://bookmine.work
 * jQuery
 
 ## 今後実装してきたいこと
+* テストの充実
 * dockerで開発環境の構築
 * circleciの導入
