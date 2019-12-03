@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     @key_word = params[:q][:title_or_content_or_product_title_cont]
     @posts =
       if @key_word.blank?
-        redirect_to users_path
+        redirect_to posts_path
       else
         @q.result(distinct: true).order(created_at: :desc).page(params[:page])
       end

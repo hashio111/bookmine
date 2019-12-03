@@ -46,9 +46,11 @@
       .tab-content
         #posts.tab-pane.active{role: "tabpanel", "aria-labelledby" => "posts1-tab"}
           = render "posts/post_list", posts: @posts
+          = paginate @posts
         #likes.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
           = render "like_list", likes: @likes
         #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
           = render "following_list", users: @following  
         #followers.tab-pane{role: "tabpanel", "aria-labelledby" => "followers-tab"}
           = render "followers_list", users: @followers
+  = render "layouts/footer"

@@ -2,7 +2,8 @@
   .col-sm-10.col-md-3.mb-3
     .card.bg-light
       .card-image.mx-auto.my-2
-        = image_tag(product.image_url, class: "rounded border")
+        = link_to product_path(product) do
+          = image_tag(product.image_url, class: "rounded border")
       .card-body.bg-white.border-top.text-center
         = link_to product_path(product), class: "btn btn-outline-success" do
           詳細に戻る
@@ -23,11 +24,13 @@
         = f.submit "投稿する", class: "btn btn-success"
 
 :javascript
-  $('#star').raty({
-    size     : 36,
-    starOff:  '#{asset_path('star-off.png')}',
-    starOn : '#{asset_path('star-on.png')}',
-    starHalf: '#{asset_path('star-half.png')}',
-    scoreName: 'post[rate]',
-    half: true,
+  $(document).on('turbolinks:load', function(){
+    $('#star').raty({
+      size     : 36,
+      starOff:  '#{asset_path('star-off.png')}',
+      starOn : '#{asset_path('star-on.png')}',
+      starHalf: '#{asset_path('star-half.png')}',
+      scoreName: 'post[rate]',
+      half: true,
+    });
   });
