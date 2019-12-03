@@ -16,6 +16,6 @@
         .col
           = f.submit "検索", class: "btn btn-success btn-md"
 
-  = render "post_list", posts: @posts
-  = paginate @posts
-  = render "layouts/footer"
+= render "post_list", posts: @posts
+= paginate @posts
+= render "layouts/footer"

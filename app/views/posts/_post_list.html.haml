@@ -46,7 +46,10 @@
               .modal-dialog.modal-dialog-centered{role: "document"}
                 .modal-content
                   .modal-body
-                    %h4.text-center 口コミを削除しますか？
+                    %h4.text-center
+                      %span
+                        %i.far.fa-trash-alt.text-danger
+                        口コミを削除しますか？
                   .modal-footer
                     = link_to post, method: :delete, class: "btn btn-outline-success" do
                       %span はい
