@@ -2,7 +2,8 @@
   .col-sm-10.col-md-3.mb-3
     .card.bg-light
       .card-image.mx-auto.my-2
-        = image_tag(product.image_url, class: "rounded border")
+        = link_to product_path(product) do
+          = image_tag(product.image_url, class: "rounded border")
       .card-body.bg-white.border-top.text-center
         = link_to product_path(product), class: "btn btn-outline-success" do
           詳細に戻る

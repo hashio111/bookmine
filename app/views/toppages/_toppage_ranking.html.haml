@@ -19,8 +19,10 @@
                 %span.small.align-middle.ml-3
                   = "#{product.posts.count}件の口コミ"
             .card-footer.bg-white.text-center
-              = link_to product_path(product), class: "btn btn-outline-success" do
-                詳細を見る
+              %h5
+                = "#{index + 1}位"
+                %i.fas.fa-heart.text-danger.ml-2
+                %span.small= product.likes.count
       :javascript
         $(document).on('turbolinks:load', function(){
           $('#star-rate-#{product.id}').raty({

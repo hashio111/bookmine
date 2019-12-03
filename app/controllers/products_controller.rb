@@ -33,5 +33,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find_by(id: params[:id])
     @posts = @product.posts
+    @post = current_user.posts.find_by(product_id: @product.id) if user_signed_in?
   end
 end
