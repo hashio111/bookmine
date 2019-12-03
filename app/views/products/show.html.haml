@@ -25,13 +25,13 @@
                 = f.submit "お気に入り登録", class: "btn btn-sm btn-outline-success"
             - else
               = form_with url: like_path(@product), method: :delete, local: true do |f|
-                = f.submit "お気に入り登録中", class: "btn btn-success"
+                = f.submit "お気に入り登録中", class: "btn btn-sm btn-success"
           - else
-            = link_to "お気に入り登録", new_user_session_path, class: "btn btn-outline-success"
+            = link_to "お気に入り登録", new_user_session_path, class: "btn btn-sm btn-outline-success"
         .card-footer.bg-white.text-center
           - if user_signed_in?
             - if current_user.posts.where(product_id: @product.id).length == 0
-              = link_to new_post_product_path, class: "btn btn-outline-primary" do
+              = link_to new_post_product_path, class: "btn btn-sm btn-outline-primary" do
                 口コミを投稿する
             - else
               %p.small 口コミ投稿済み
@@ -42,7 +42,7 @@
                 %i.far.fa-trash-alt
                 %span 削除
           - else
-            = link_to new_user_session_path, class: "btn btn-outline-primary" do
+            = link_to new_user_session_path, class: "btn btn-sm btn-outline-primary" do
               口コミを投稿する
 
     .col-sm-12.col-md-9
