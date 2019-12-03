@@ -26,31 +26,35 @@
           = link_to "#posts", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "posts", "aria-selected" => "true"} do
             口コミ
             %span.badge.badge-pill.badge-secondary
-              = @posts.length
+              = @count_posts
         %li.nav-item
           = link_to "#likes", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes", "aria-selected" => "false"} do
             お気に入り
             %span.badge.badge-pill.badge-secondary
-              = @likes.length
+              = @count_likes
         %li.nav-item
           = link_to "#following", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "following", "aria-selected" => "false"} do
             フォロー
             %span.badge.badge-pill.badge-secondary{id: "following_#{@user.id}"}
-              = @following.length
+              -# = @following.length
+              = @count_following
         %li.nav-item
           = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "false"} do
             フォロワー
             %span.badge.badge-pill.badge-secondary
-              = @followers.length
-
+              -# = @followers.length
+              = @count_followers
       .tab-content
         #posts.tab-pane.active{role: "tabpanel", "aria-labelledby" => "posts1-tab"}
           = render "posts/post_list", posts: @posts
-          = paginate @posts
+          = paginate @posts, param_name: "posts_page"
         #likes.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
           = render "like_list", likes: @likes
+          = paginate @likes, param_name: "likes_page"
         #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
-          = render "following_list", users: @following  
+          = render "following_list", users: @following
+          = paginate @following,  param_name: "following_page"
         #followers.tab-pane{role: "tabpanel", "aria-labelledby" => "followers-tab"}
           = render "followers_list", users: @followers
+          = paginate @followers, param_name: "followers_page"
   = render "layouts/footer"

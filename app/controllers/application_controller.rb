@@ -22,4 +22,11 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = User.new unless user_signed_in?
   end
+
+  def counts(user)
+    @count_posts = user.posts.count
+    @count_likes = user.products.count
+    @count_following = user.following.count
+    @count_followers = user.followers.count
+  end
 end

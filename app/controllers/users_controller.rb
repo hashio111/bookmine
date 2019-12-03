@@ -7,10 +7,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @posts = @user.posts.order(created_at: :desc).page(params[:page])
-    @likes = @user.products.order(created_at: :desc).page(params[:page])
-    @following = @user.following.page(params[:page])
-    @followers = @user.followers.page(params[:page])
+    @posts = @user.posts.order(created_at: :desc).page(params[:posts_page])
+    @likes = @user.products.order(created_at: :desc).page(params[:likes_page])
+    @following = @user.following.page(params[:following_page])
+    @followers = @user.followers.page(params[:followers_page])
+    counts(@user)
   end
 
   def search

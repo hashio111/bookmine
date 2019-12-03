@@ -66,5 +66,6 @@
     .col-sm-12.col-md-12
       %h2.text-center.my-3
         この本の口コミ
-      = render "posts/post_list", posts: @posts
-      = render "layouts/footer"
+      .container
+        = render "posts/post_list", posts: @posts
+        = render "layouts/footer"
