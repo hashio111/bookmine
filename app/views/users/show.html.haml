@@ -28,18 +28,18 @@
             %span.badge.badge-pill.badge-secondary
               = @count_posts
         %li.nav-item
-          = link_to "#likes", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes", "aria-selected" => "false"} do
+          = link_to "#likes", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes", "aria-selected" => "true"} do
             お気に入り
             %span.badge.badge-pill.badge-secondary
               = @count_likes
         %li.nav-item
-          = link_to "#following", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "following", "aria-selected" => "false"} do
+          = link_to "#following", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "following", "aria-selected" => "true"} do
             フォロー
             %span.badge.badge-pill.badge-secondary{id: "following_#{@user.id}"}
               -# = @following.length
               = @count_following
         %li.nav-item
-          = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "false"} do
+          = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "true"} do
             フォロワー
             %span.badge.badge-pill.badge-secondary
               -# = @followers.length
@@ -58,3 +58,8 @@
           = render "followers_list", users: @followers
           = paginate @followers, param_name: "followers_page"
   = render "layouts/footer"
+
+  :javascript
+    $(document).on('turbolinks:load', function(){
+      
+    });
