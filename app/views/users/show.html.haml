@@ -44,13 +44,15 @@
               = @count_followers
       .tab-content
         #posts.tab-pane.active{role: "tabpanel", "aria-labelledby" => "posts-tab"}
-          = render "posts/post_list", posts: @posts
-          = paginate @posts, param_name: "posts_page"
+          #posts_page
+            = render "posts/post_list", posts: @posts
+            #more-posts.text-center.mt-3
+              = link_to_next_page @posts, "もっと見る", param_name: "posts_page", params: {type: :posts_page}, class: "btn btn-success", remote: true
         #likes.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
-          #like_page
+          #likes_page
             = render "like_list", likes: @likes
-            .text-center.mt-3
-              = link_to_next_page @likes, "もっと見る", param_name: "likes_page", class: "btn btn-success", id: "more-likes", remote: true
+            #more-likes.text-center.mt-3
+              = link_to_next_page @likes, "もっと見る", param_name: "likes_page", params: {type: :likes_page}, class: "btn btn-success", remote: true
         #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
           = render "following_list", users: @following
           = paginate @following,  param_name: "following_page"
