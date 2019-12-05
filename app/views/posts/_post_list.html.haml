@@ -1,12 +1,12 @@
-.container
-  - if posts.present?
+- if posts.present?
+  .container
     - posts.each do |post|
       .row.border.my-4.rounded.border-muted.bg-white
         .col-sm-12.col-md-2.d-flex.justify-content-center.post-box
           .image-box.mt-4
             = link_to product_path(post.product) do
               = image_tag post.product.image_url, class: "border border-muted rounded mb-2", size: "120x160"
-   
+    
         .col-sm-12.col-md-10
           .m-3
             = link_to user_path(post.user), class: "text-decoration-none" do
@@ -67,6 +67,6 @@
             score: '#{post.rate}'
           });
         });
-  - else
-    .text-center.text-muted
-      口コミがありません
+- else
+  .text-center.text-muted
+    口コミがありません

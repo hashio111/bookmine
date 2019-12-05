@@ -7,10 +7,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @posts = @user.posts.order(created_at: :desc).page(params[:page])
-    @likes = @user.products.order(created_at: :desc).page(params[:page])
-    @following = @user.following.page(params[:page])
-    @followers = @user.followers.page(params[:page])
+    @posts = @user.posts.order(created_at: :desc).page(params[:posts_page]).per(8)
+    @likes = @user.products.order(created_at: :desc).page(params[:likes_page]).per(8)
+    @following = @user.following.page(params[:following_page]).per(8)
+    @followers = @user.followers.page(params[:followers_page]).per(8)
+    counts(@user)
+
+    return unless request.xhr?
+    case params[:type]
+    when "likes_page", "posts_page", "following_page", "followers_page"
+      render "#{params[:type]}"
+    end
   end
 
   def search
