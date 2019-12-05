@@ -54,8 +54,10 @@
             #more-likes.text-center.mt-3
               = link_to_next_page @likes, "もっと見る", param_name: "likes_page", params: {type: :likes_page}, class: "btn btn-success", remote: true
         #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
-          = render "following_list", users: @following
-          = paginate @following,  param_name: "following_page"
+          #following_page
+            = render "following_list", users: @following
+            #more-following.text-center.mt-3
+              = link_to_next_page @following, "もっと見る",  param_name: "following_page", params: {type: :following_page}, class: "btn btn-success", remote: true
         #followers.tab-pane{role: "tabpanel", "aria-labelledby" => "followers-tab"}
           = render "followers_list", users: @followers
           = paginate @followers, param_name: "followers_page"

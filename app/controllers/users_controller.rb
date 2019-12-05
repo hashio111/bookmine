@@ -9,13 +9,13 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @posts = @user.posts.order(created_at: :desc).page(params[:posts_page]).per(4)
     @likes = @user.products.order(created_at: :desc).page(params[:likes_page]).per(4)
-    @following = @user.following.page(params[:following_page]).per(2)
+    @following = @user.following.page(params[:following_page]).per(4)
     @followers = @user.followers.page(params[:followers_page]).per(2)
     counts(@user)
 
     return unless request.xhr?
     case params[:type]
-    when "likes_page", "posts_page"
+    when "likes_page", "posts_page", "following_page"
       render "#{params[:type]}"
     end
   end
