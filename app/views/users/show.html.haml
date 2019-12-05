@@ -59,6 +59,8 @@
             #more-following.text-center.mt-3
               = link_to_next_page @following, "もっと見る",  param_name: "following_page", params: {type: :following_page}, class: "btn btn-success", remote: true
         #followers.tab-pane{role: "tabpanel", "aria-labelledby" => "followers-tab"}
-          = render "followers_list", users: @followers
-          = paginate @followers, param_name: "followers_page"
+          #followers_page
+            = render "followers_list", users: @followers
+            #more-followers.text-center.mt-3
+              = link_to_next_page @followers, "もっと見る", param_name: "followers_page", params: {type: :followers_page}, class: "btn btn-success", remote: true
   = render "layouts/footer"
