@@ -51,21 +51,19 @@
                         %i.far.fa-trash-alt.text-danger
                         口コミを削除しますか？
                   .modal-footer
-                    = link_to post, method: :delete, class: "btn btn-outline-success" do
+                    = link_to post_path(post), method: :delete, class: "btn btn-outline-success" do
                       %span はい
                     %button.btn.btn-outline-danger.ml-3{data: {dismiss: "modal"}}
                       いいえ
       :javascript
-        $(document).on('turbolinks:load', function(){
-          $('#star-rate-#{post.id}').raty({
-            size     : 36,
-            starOff:  '#{asset_path('star-off.png')}',
-            starOn : '#{asset_path('star-on.png')}',
-            starHalf: '#{asset_path('star-half.png')}',
-            half: true,
-            readOnly: true,
-            score: '#{post.rate}'
-          });
+        $('#star-rate-#{post.id}').raty({
+          size     : 36,
+          starOff:  '#{asset_path('star-off.png')}',
+          starOn : '#{asset_path('star-on.png')}',
+          starHalf: '#{asset_path('star-half.png')}',
+          half: true,
+          readOnly: true,
+          score: '#{post.rate}'
         });
 - else
   .text-center.text-muted

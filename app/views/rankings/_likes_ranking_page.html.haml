@@ -1,0 +1,3 @@
+= render "likes_ranking_list", products: @likes_ranking
+#more-likes_ranking.text-center.mt-3
+  = link_to_next_page @likes_ranking, "もっと見る", param_name: "likes_ranking_page", params: {type: :likes_ranking_page}, class: "btn btn-success", remote: true
