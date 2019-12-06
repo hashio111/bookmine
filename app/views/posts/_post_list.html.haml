@@ -51,7 +51,7 @@
                         %i.far.fa-trash-alt.text-danger
                         口コミを削除しますか？
                   .modal-footer
-                    = link_to post, method: :delete, class: "btn btn-outline-success" do
+                    = link_to post_path(post), method: :delete, class: "btn btn-outline-success" do
                       %span はい
                     %button.btn.btn-outline-danger.ml-3{data: {dismiss: "modal"}}
                       いいえ
