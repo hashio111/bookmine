@@ -1,0 +1,54 @@
+.container
+  .nav{aria: {label: "breadcrumb"}}
+    %ol.breadcrumb.bg-transparent
+      %li.breadcrumb-item
+        = link_to root_path do
+          %i.fas.fa-home
+      %li.breadcrumb-item.active{aria: {current: "page"}}
+        ランキング
+
+  -# .row
+  -#   .col-md-12
+  -#     %ul.nav.nav-tabs.nav-justified.my-3{role: "tablist"}
+  -#       %li.nav-item
+  -#         = link_to "#posts", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "posts", "aria-selected" => "true"} do
+  -#           口コミ
+  -#           %span.badge.badge-pill.badge-secondary
+  -#             = @count_posts
+  -#       %li.nav-item
+  -#         = link_to "#likes", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes", "aria-selected" => "true"} do
+  -#           お気に入り
+  -#           %span.badge.badge-pill.badge-secondary
+  -#             = @count_likes
+  -#       %li.nav-item
+  -#         = link_to "#following", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "following", "aria-selected" => "true"} do
+  -#           フォロー
+  -#           %span.badge.badge-pill.badge-secondary{id: "following_#{@user.id}"}
+  -#             = @count_following
+  -#       %li.nav-item
+  -#         = link_to "#followers", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "followers", "aria-selected" => "true"} do
+  -#           フォロワー
+  -#           %span.badge.badge-pill.badge-secondary
+  -#             = @count_followers
+  -#     .tab-content
+  -#       #posts.tab-pane.active{role: "tabpanel", "aria-labelledby" => "posts-tab"}
+  -#         #posts_page
+  -#           = render "posts/post_list", posts: @posts
+  -#           #more-posts.text-center.mt-3
+  -#             = link_to_next_page @posts, "もっと見る", param_name: "posts_page", params: {type: :posts_page}, class: "btn btn-success", remote: true
+  -#       #likes.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
+  -#         #likes_page
+  -#           = render "like_list", likes: @likes
+  -#           #more-likes.text-center.mt-3
+  -#             = link_to_next_page @likes, "もっと見る", param_name: "likes_page", params: {type: :likes_page}, class: "btn btn-success", remote: true
+  -#       #following.tab-pane{role: "tabpanel", "aria-labelledby" => "following-tab"}
+  -#         #following_page
+  -#           = render "following_list", users: @following
+  -#           #more-following.text-center.mt-3
+  -#             = link_to_next_page @following, "もっと見る",  param_name: "following_page", params: {type: :following_page}, class: "btn btn-success", remote: true
+  -#       #followers.tab-pane{role: "tabpanel", "aria-labelledby" => "followers-tab"}
+  -#         #followers_page
+  -#           = render "followers_list", users: @followers
+  -#           #more-followers.text-center.mt-3
+  -#             = link_to_next_page @followers, "もっと見る", param_name: "followers_page", params: {type: :followers_page}, class: "btn btn-success", remote: true
+  -# = render "layouts/footer"
