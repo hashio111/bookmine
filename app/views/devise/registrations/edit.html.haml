@@ -19,7 +19,7 @@
             .form-group
               .text-center
                 = image_tag avatar_url(@user), size: "140x140", id: "avatar_img", class: "rounded-circle", style: "cursor: pointer;", onClick: "$('#upfile').click()"
-                = f.file_field :image, class: "form-control", style: "display: none;", id: "upfile"
+                = f.file_field :image, class: "form-control", style: "display: none;", id: "upfile", accept: "image/jpeg,image/gif,image/png"
             :javascript
               $(document).on('turbolinks:load', function(){
                 $('#upfile').on('change', function(e){
