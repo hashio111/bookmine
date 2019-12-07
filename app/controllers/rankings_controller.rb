@@ -10,13 +10,14 @@ class RankingsController < ApplicationController
     @posts_ranking_per = 6
     @posts_ranking = Kaminari.paginate_array(posts_arr).page(params[:posts_ranking_page]).per(@posts_ranking_per)
     return unless request.xhr?
+
     case params[:type]
     when "likes_ranking_page"
       @likes_ranking_page = params[:likes_ranking_page].to_i
-      render "#{params[:type]}"
+      render params[:type].to_s
     when "posts_ranking_page"
       @posts_ranking_page = params[:posts_ranking_page].to_i
-      render "#{params[:type]}"
+      render params[:type].to_s
     end
   end
 end
