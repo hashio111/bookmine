@@ -20,9 +20,9 @@
               -#     = "#{product.posts.count}件の口コミ"
             .card-footer.bg-white.text-center
               %h5
-                = "#{@likes_ranking_page * @likes_ranking_per + (index - @likes_ranking_per + 1)}位"
-                %i.fas.fa-heart.text-danger.ml-2
-                %span.small= product.likes.count
+                = "#{@posts_ranking_page * @posts_ranking_per + (index - @posts_ranking_per + 1)}位"
+                %i.far.fa-comment.text-primary.ml-2
+                %span.small= product.posts.count
       -# :javascript
       -#   $('#star-rate-#{product.id}').raty({
       -#     size     : 36,

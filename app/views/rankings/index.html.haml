@@ -19,12 +19,12 @@
       .tab-content
         #likes_ranking.tab-pane.active{role: "tabpanel", "aria-labelledby" => "posts-tab"}
           #likes_ranking_page
-            = render "toppages/toppage_ranking", products: @likes_ranking
+            = render "likes_ranking", products: @likes_ranking
             #more-likes_ranking.text-center.mt-3
               = link_to_next_page @likes_ranking, "もっと見る", param_name: "likes_ranking_page", params: {type: :likes_ranking_page}, class: "btn btn-success", remote: true
         #posts.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
-          #posts_page
-            -# = render "posts_ranking", likes: @likes
-            #more-likes.text-center.mt-3
-              -# = link_to_next_page @likes, "もっと見る", param_name: "likes_page", params: {type: :likes_page}, class: "btn btn-success", remote: true
+          #posts_ranking_page
+            = render "posts_ranking", products: @posts_ranking
+            #more-posts_ranking.text-center.mt-3
+              = link_to_next_page @posts_ranking, "もっと見る", param_name: "posts_ranking_page", params: {type: :posts_ranking_page}, class: "btn btn-success", remote: true
   = render "layouts/footer"

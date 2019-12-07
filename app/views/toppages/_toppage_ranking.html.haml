@@ -13,7 +13,7 @@
               -if product.author.present?
                 %p.card-text.text-truncate= product.author
               -else
-                %p 作者情報なし
+                %p.card-text 作者情報なし
               .star
                 %span{id: "star-rate-#{product.id}"}
                 %span.small.align-middle.ml-3
