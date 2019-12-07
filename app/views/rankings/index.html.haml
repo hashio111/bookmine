@@ -1,0 +1,30 @@
+.container
+  .nav{aria: {label: "breadcrumb"}}
+    %ol.breadcrumb.bg-transparent
+      %li.breadcrumb-item
+        = link_to root_path do
+          %i.fas.fa-home
+      %li.breadcrumb-item.active{aria: {current: "page"}}
+        ランキング
+
+  .row
+    .col-md-12
+      %ul.nav.nav-tabs.nav-justified.my-3{role: "tablist"}
+        %li.nav-item
+          = link_to "#likes_ranking", {class: "nav-link active", role: "tab", "data-toggle" => "tab", "aria-controls" => "likes_ranking", "aria-selected" => "true"} do
+            お気に入り数
+        %li.nav-item
+          = link_to "#posts", {class: "nav-link", role: "tab", "data-toggle" => "tab", "aria-controls" => "posts", "aria-selected" => "true"} do
+            口コミ投稿数
+      .tab-content
+        #likes_ranking.tab-pane.active{role: "tabpanel", "aria-labelledby" => "posts-tab"}
+          #likes_ranking_page
+            = render "likes_ranking", products: @likes_ranking
+            #more-likes_ranking.text-center.mt-3
+              = link_to_next_page @likes_ranking, "もっと見る", param_name: "likes_ranking_page", params: {type: :likes_ranking_page}, class: "btn btn-success", remote: true
+        #posts.tab-pane{role: "tabpanel", "aria-labelledby" => "likes-tab"}
+          #posts_ranking_page
+            = render "posts_ranking", products: @posts_ranking
+            #more-posts_ranking.text-center.mt-3
+              = link_to_next_page @posts_ranking, "もっと見る", param_name: "posts_ranking_page", params: {type: :posts_ranking_page}, class: "btn btn-success", remote: true
+  = render "layouts/footer"

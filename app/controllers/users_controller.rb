@@ -14,9 +14,10 @@ class UsersController < ApplicationController
     counts(@user)
 
     return unless request.xhr?
+
     case params[:type]
     when "likes_page", "posts_page", "following_page", "followers_page"
-      render "#{params[:type]}"
+      render params[:type].to_s
     end
   end
 

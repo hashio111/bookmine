@@ -14,24 +14,22 @@
                 %p.card-text.text-truncate= product.author
               -else
                 %p.card-text 作者情報なし
-              .star
-                %span{id: "star-rate-#{product.id}"}
-                %span.small.align-middle.ml-3
-                  = "#{product.posts.count}件の口コミ"
+              -# .star
+              -#   %span{id: "star-rate-#{product.id}"}
+              -#   %span.small.align-middle.ml-3
+              -#     = "#{product.posts.count}件の口コミ"
             .card-footer.bg-white.text-center
               %h5
-                = "#{index + 1}位"
+                = "#{@likes_ranking_page * @likes_ranking_per + (index - @likes_ranking_per + 1)}位"
                 %i.fas.fa-heart.text-danger.ml-2
                 %span.small= product.likes.count
-      :javascript
-        $(document).on('turbolinks:load', function(){
-          $('#star-rate-#{product.id}').raty({
-            size     : 36,
-            starOff:  '#{asset_path('star-off.png')}',
-            starOn : '#{asset_path('star-on.png')}',
-            starHalf: '#{asset_path('star-half.png')}',
-            half: true,
-            readOnly: true,
-            score: '#{product.posts.average(:rate).to_f.round(1)}'
-          });
-        });
+      -# :javascript
+      -#   $('#star-rate-#{product.id}').raty({
+      -#     size     : 36,
+      -#     starOff:  '#{asset_path('star-off.png')}',
+      -#     starOn : '#{asset_path('star-on.png')}',
+      -#     starHalf: '#{asset_path('star-half.png')}',
+      -#     half: true,
+      -#     readOnly: true,
+      -#     score: '#{product.posts.average(:rate).to_f.round(1)}'
+      -#   });
