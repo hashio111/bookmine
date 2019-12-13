@@ -23,7 +23,7 @@
               %tr
                 %th 評価 
                 %td
-                  %span{id: "star-rate-#{post.id}"}
+                  %span{class: "star-rate-#{post.id}"}
                   %span.align-middle.ml-3.font-weight-bold
                     = post.rate
               %tr
@@ -57,7 +57,7 @@
                       いいえ
       :javascript
         $(document).on('turbolinks:load', function(){
-          $('#star-rate-#{post.id}').raty({
+          $('.star-rate-#{post.id}').raty({
             size     : 36,
             starOff:  '#{asset_path('star-off.png')}',
             starOn : '#{asset_path('star-on.png')}',
